@@ -1,0 +1,7 @@
+# use glob syntax.
+syntax: glob
+
+build/**
+dist/**
+plone.mls.core.egg-info/**
+
