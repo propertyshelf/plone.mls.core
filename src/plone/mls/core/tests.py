@@ -12,6 +12,7 @@ ptc.setupPloneSite()
 
 import plone.mls.core
 
+
 class TestCase(ptc.PloneTestCase):
     class layer(PloneSite):
         @classmethod
@@ -30,9 +31,10 @@ def test_suite():
     return unittest.TestSuite([
 
         # Unit tests
-        #doctestunit.DocFileSuite(
-        #    'README.txt', package='plone.mls.core',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
+        doctestunit.DocFileSuite(
+            'README.txt', package='plone.mls.core',
+            setUp=testing.setUp, tearDown=testing.tearDown,
+        ),
 
         #doctestunit.DocTestSuite(
         #    module='plone.mls.core.mymodule',
