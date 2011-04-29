@@ -5,11 +5,19 @@
 
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
-      name="default"
-      title="plone.mls.core"
-      directory="profiles/default"
       description="Plone support for the Propertyshelf MLS."
+      directory="profiles/default"
+      name="default"
       provides="Products.GenericSetup.interfaces.EXTENSION"
+      title="plone.mls.core"
+      />
+
+  <genericsetup:registerProfile
+      description="An uninstall profile for plone.mls.core."
+      directory="profiles/uninstall"
+      name="uninstall"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      title="plone.mls.core - uninstall"
       />
 
 </configure>

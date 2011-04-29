@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<registry>
+  <record name="plone.mls.core.browser.interfaces.IMLSSettings.mls_key" delete="True" />
+  <record name="plone.mls.core.browser.interfaces.IMLSSettings.mls_site" delete="True" />
+</registry>
