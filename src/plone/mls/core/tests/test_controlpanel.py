@@ -26,7 +26,8 @@ from zope.component import getMultiAdapter
 from zope.interface import directlyProvides
 
 # local imports
-from plone.mls.core.browser.interfaces import IMLSSettings, IMLSSpecific
+from plone.mls.core.browser.interfaces import IMLSSpecific
+from plone.mls.core.interfaces import IMLSSettings
 from plone.mls.core.tests.layer import MLSCoreLayer
 
 
@@ -63,14 +64,14 @@ class RegistryTest(PloneTestCase):
     def test_record_mls_key(self):
         # Test that the mls_key record is in the control panel.
         record_mls_key = self.registry.records[
-            'plone.mls.core.browser.interfaces.IMLSSettings.mls_key']
+            'plone.mls.core.interfaces.IMLSSettings.mls_key']
         self.failUnless('mls_key' in IMLSSettings)
         self.assertEquals(record_mls_key.value, u"")
 
     def test_record_mls_site(self):
         # Test that the mls_site record is in the control panel.
         record_mls_site = self.registry.records[
-            'plone.mls.core.browser.interfaces.IMLSSettings.mls_site']
+            'plone.mls.core.interfaces.IMLSSettings.mls_site']
         self.failUnless('mls_site' in IMLSSettings)
         self.assertEquals(record_mls_site.value, u"")
 

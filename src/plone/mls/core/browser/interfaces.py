@@ -17,46 +17,7 @@
 
 # zope imports
 from plone.theme.interfaces import IDefaultPloneLayer
-from zope import schema
-from zope.interface import Interface
-
-# local imports
-from plone.mls.core import _
 
 
 class IMLSSpecific(IDefaultPloneLayer):
     """Marker interface that defines a Zope 3 browser layer."""
-
-
-class IMLSSettings(Interface):
-    """Global Propertyshelf MLS settings.
-
-    This describes records stored in the configuration registry and obtainable
-    via plone.registry.
-    """
-
-    mls_key = schema.TextLine(
-        default=u"",
-        description=_(
-            u"help_mls_key",
-            default=u"",
-        ),
-        required=True,
-        title=_(
-            u"label_mls_key",
-            default=u"MLS API Key",
-        )
-    )
-
-    mls_site = schema.TextLine(
-        default=u"",
-        description=_(
-            u"help_mls_site",
-            default=u"",
-        ),
-        required=True,
-        title=_(
-            u"label_mls_site",
-            default=u"MLS URL",
-        )
-    )

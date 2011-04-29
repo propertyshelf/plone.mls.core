@@ -10,6 +10,7 @@
       appId="plone.mls.core"
       category="Products"
       condition_expr=""
+      icon_expr="string:$portal_url/++resource++plone.mls.core/icon.png"
       title="Propertyshelf MLS"
       url_expr="string:${portal_url}/@@mls-controlpanel"
       visible="True"

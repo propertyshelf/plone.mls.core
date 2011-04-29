@@ -11,4 +11,9 @@
       permission="cmf.ManagePortal"
       />
 
+    <browser:resourceDirectory
+        name="plone.mls.core"
+        directory="resources"
+        />
+
 </configure>

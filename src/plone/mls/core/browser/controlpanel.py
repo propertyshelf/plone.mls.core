@@ -20,7 +20,7 @@ from plone.app.registry.browser import controlpanel
 
 # local imports
 from plone.mls.core import _
-from plone.mls.core.browser.interfaces import IMLSSettings
+from plone.mls.core.interfaces import IMLSSettings
 
 
 class MLSSettingsEditForm(controlpanel.RegistryEditForm):
