@@ -36,7 +36,7 @@ class IMLSSettings(Interface):
             u"help_mls_key",
             default=u"",
         ),
-        required=True,
+        required=False,
         title=_(
             u"label_mls_key",
             default=u"MLS API Key",
@@ -53,5 +53,18 @@ class IMLSSettings(Interface):
         title=_(
             u"label_mls_site",
             default=u"MLS URL",
+        )
+    )
+
+    agency_id = schema.TextLine(
+        default=u"",
+        description=_(
+            u"help_agency_id",
+            default=u"",
+        ),
+        required=True,
+        title=_(
+            u"label_agency_id",
+            default=u"Agency ID",
         )
     )
