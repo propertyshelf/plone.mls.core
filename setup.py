@@ -111,6 +111,8 @@ setup(
     install_requires=[
       'setuptools',
       # -*- Extra requirements: -*-
+      'simplejson',
+      'jsonpickle',
       'plone.app.registry',
     ],
     entry_points="""

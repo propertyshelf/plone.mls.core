@@ -18,6 +18,7 @@
 # python imports
 from jsonpickle import decode
 import urllib2
+import json
 
 # zope imports
 from plone.registry.interfaces import IRegistry
@@ -27,13 +28,14 @@ from zope.component import getUtility
 from plone.mls.core.interfaces import IMLSSettings
 
 
-TIMEOUT = 3
+TIMEOUT = 10
 
 
 def authenticate():
     """Authenticate the Plone Website."""
     registry = getUtility(IRegistry)
     settings = registry.forInterface(IMLSSettings)
+#    test_json()
 
     if settings.mls_site is None and settings.agency_id is None:
         return False
@@ -45,7 +47,7 @@ def authenticate():
     url = urllib2.unquote(url)
     
     try:
-        urllib2.urlopen(url, timeout=TIMEOUT)
+        urllib2.urlopen(url)
     except IOError:
         return False
 
@@ -71,8 +73,10 @@ def get_listing(lid, summary=False):
     url = urllib2.unquote(url)
 
     try:
+        print("Getting listing...")
         raw = urllib2.urlopen(url, timeout=TIMEOUT)
     except IOError:
+        print("Timeout?")
         return False
     raw = '\n'.join(raw.readlines())
 
@@ -82,3 +86,13 @@ def get_listing(lid, summary=False):
         return False
 
     return data
+
+
+def test_json():
+    url = 'http://localhost:8060/mls/agencies/lep/listings/rl1000009/'
+    data = json.dumps({'id': 1, 'method': 'listing', 'params': {'lang': 'en'}})
+    req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
+    f = urllib2.urlopen(req)
+    result = f.read()
+    print(result)
+    print "Done"
