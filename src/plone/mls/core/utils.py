@@ -17,6 +17,8 @@
 
 # python imports
 from jsonpickle import decode
+from urllib import urlencode
+import simplejson
 import urllib2
 import json
 
@@ -29,6 +31,20 @@ from plone.mls.core.interfaces import IMLSSettings
 
 
 TIMEOUT = 10
+
+
+class MLSError:
+    """General MLS Error."""
+    def __init__(self, code=None, reason=None):
+        self.code = code
+        self.reason = reason
+
+
+class MLSConnectionError(MLSError):
+    """No Conncetion to the MLS."""
+
+class MLSDataError(MLSError):
+    """Data returned from the MLS contains errors."""
 
 
 def authenticate():
@@ -56,36 +72,48 @@ def authenticate():
 
 def get_listing(lid, summary=False):
     """Get the data for a single listing."""
+    kwargs = {}
     registry = getUtility(IRegistry)
     settings = registry.forInterface(IMLSSettings)
 
     if settings.mls_site is None and settings.agency_id is None:
         return False
 
-    url = '%(site)s/agencies/%(agency_id)s/listings/%(listing_id)s/json' % dict(
+    URL_BASE = '%(site)s/agencies/%(agency_id)s/listings/%(listing_id)s/json' % dict(
         site=settings.mls_site,
         agency_id=settings.agency_id,
         listing_id=lid,
     )
+
+    kwargs.update({
+        'apikey': settings.mls_key,
+        'agency': settings.agency_id,
+        'listing': lid,
+    })
+
     if summary:
-        url = url + '?summary'
+        kwargs.update({'summary': 1})
 
-    url = urllib2.unquote(url)
-
-    try:
-        print("Getting listing...")
-        raw = urllib2.urlopen(url, timeout=TIMEOUT)
-    except IOError:
-        print("Timeout?")
-        return False
-    raw = '\n'.join(raw.readlines())
+    url = URL_BASE + '?' + urlencode(kwargs)
+    print(url)
 
     try:
-        data = decode(raw)
-    except ValueError:
-        return False
+        data = urllib2.urlopen(url)
+    except urllib2.URLError, e:
+        if isinstance(e, urllib2.HTTPError):
+            raise MLSConnectionError(code=e.code, reason=e.msg)
+        else:
+            # No connection to the server possible
+            raise MLSConnectionError(code=503, reason=e.reason)
 
-    return data
+    try:
+        result = simplejson.load(data)
+    except simplejson.JSONDecodeError, e:
+        raise MLSDataError(code=401)
+
+    if 'Error' in result:
+        raise MLSDataError
+    return result
 
 
 def test_json():
