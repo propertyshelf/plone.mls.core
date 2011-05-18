@@ -101,8 +101,10 @@ def get_listing(lid, summary=False):
         data = urllib2.urlopen(url)
     except urllib2.URLError, e:
         if isinstance(e, urllib2.HTTPError):
+            print(e.code)
             raise MLSConnectionError(code=e.code, reason=e.msg)
         else:
+            print("MLSConnectionError")
             # No connection to the server possible
             raise MLSConnectionError(code=503, reason=e.reason)
 
@@ -111,9 +113,9 @@ def get_listing(lid, summary=False):
     except simplejson.JSONDecodeError, e:
         raise MLSDataError(code=401)
 
-    if 'Error' in result:
+    if result.get('status', 'error') != 'ok':
         raise MLSDataError
-    return result
+    return result.get('result', None)
 
 
 def test_json():
