@@ -76,8 +76,11 @@ def get_listing(lid, summary=False):
     registry = getUtility(IRegistry)
     settings = registry.forInterface(IMLSSettings)
 
-    if settings.mls_site is None and settings.agency_id is None:
-        return False
+    if settings.mls_site is None or len(settings.mls_site) == 0:
+        raise MLSConnectionError(code=503)
+
+    if settings.agency_id is None or len(settings.agency_id) == 0:
+        raise MLSConnectionError(code=503)
 
     URL_BASE = '%(site)s/agencies/%(agency_id)s/listings/%(listing_id)s/json' % dict(
         site=settings.mls_site,
@@ -101,7 +104,6 @@ def get_listing(lid, summary=False):
         data = urllib2.urlopen(url)
     except urllib2.URLError, e:
         if isinstance(e, urllib2.HTTPError):
-            print(e.code)
             raise MLSConnectionError(code=e.code, reason=e.msg)
         else:
             print("MLSConnectionError")
