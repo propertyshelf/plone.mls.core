@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.1b1 (2011-05-23)
+------------------
+
+- Now raises MLSConnectionErrors if no MLS connection or bad requests.
+  [thomas]
+- Added manage portlets fallback link for dexterity types.
+  [thomas]
+
+
 0.1dev (2011-05-18)
 -------------------
 
