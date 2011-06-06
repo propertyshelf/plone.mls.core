@@ -20,7 +20,7 @@ from jsonpickle import decode
 from urllib import urlencode
 import simplejson
 import urllib2
-import json
+# import json
 
 # zope imports
 from plone.registry.interfaces import IRegistry
@@ -120,11 +120,11 @@ def get_listing(lid, summary=False):
     return result.get('result', None)
 
 
-def test_json():
-    url = 'http://localhost:8060/mls/agencies/lep/listings/rl1000009/'
-    data = json.dumps({'id': 1, 'method': 'listing', 'params': {'lang': 'en'}})
-    req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
-    f = urllib2.urlopen(req)
-    result = f.read()
-    print(result)
-    print "Done"
+# def test_json():
+#     url = 'http://localhost:8060/mls/agencies/lep/listings/rl1000009/'
+#     data = json.dumps({'id': 1, 'method': 'listing', 'params': {'lang': 'en'}})
+#     req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
+#     f = urllib2.urlopen(req)
+#     result = f.read()
+#     print(result)
+#     print "Done"
