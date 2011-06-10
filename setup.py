@@ -111,6 +111,7 @@ setup(
     install_requires=[
       'setuptools',
       # -*- Extra requirements: -*-
+      'httplib2',
       'simplejson',
       'jsonpickle',
       'plone.app.registry',

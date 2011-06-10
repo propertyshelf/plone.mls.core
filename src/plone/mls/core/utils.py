@@ -18,6 +18,7 @@
 # python imports
 from jsonpickle import decode
 from urllib import urlencode
+import httplib2
 import simplejson
 import urllib2
 # import json
@@ -98,20 +99,25 @@ def get_listing(lid, summary=False):
         kwargs.update({'summary': 1})
 
     url = URL_BASE + '?' + urlencode(kwargs)
-    print(url)
 
-    try:
-        data = urllib2.urlopen(url)
-    except urllib2.URLError, e:
-        if isinstance(e, urllib2.HTTPError):
-            raise MLSConnectionError(code=e.code, reason=e.msg)
-        else:
-            print("MLSConnectionError")
-            # No connection to the server possible
-            raise MLSConnectionError(code=503, reason=e.reason)
+    h = httplib2.Http(".cache")
+#     h = httplib2.Http()
+    resp, content = h.request(url)
 
+#     try:
+#         data = urllib2.urlopen(url)
+#     except urllib2.URLError, e:
+#         if isinstance(e, urllib2.HTTPError):
+#             raise MLSConnectionError(code=e.code, reason=e.msg)
+#         else:
+#             print("MLSConnectionError")
+#             # No connection to the server possible
+#             raise MLSConnectionError(code=503, reason=e.reason)
+# 
+#     try:
+#         result = simplejson.load(data)
     try:
-        result = simplejson.load(data)
+        result = simplejson.loads(content)
     except simplejson.JSONDecodeError, e:
         raise MLSDataError(code=401)
 
