@@ -108,7 +108,6 @@ def get_listing(lid, summary=False, lang=None):
         kwargs.update({'summary': 1})
 
     url = URL_BASE + '?' + urlencode(kwargs)
-    print(url)
     h = httplib2.Http(".cache")
 #     h = httplib2.Http()
     resp, content = h.request(url)
