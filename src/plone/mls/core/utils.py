@@ -24,6 +24,7 @@ import urllib2
 # import json
 
 # zope imports
+from Acquisition import aq_inner
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 
@@ -71,7 +72,12 @@ def authenticate():
     return True
 
 
-def get_listing(lid, summary=False):
+def get_language(context):
+    portal_state = context.unrestrictedTraverse("@@plone_portal_state")
+    return aq_inner(context).Language() or portal_state.default_language()
+
+
+def get_listing(lid, summary=False, lang=None):
     """Get the data for a single listing."""
     kwargs = {}
     registry = getUtility(IRegistry)
@@ -95,11 +101,14 @@ def get_listing(lid, summary=False):
         'listing': lid,
     })
 
+    if lang:
+        kwargs.update({'lang': lang})
+
     if summary:
         kwargs.update({'summary': 1})
 
     url = URL_BASE + '?' + urlencode(kwargs)
-
+    print(url)
     h = httplib2.Http(".cache")
 #     h = httplib2.Http()
     resp, content = h.request(url)
