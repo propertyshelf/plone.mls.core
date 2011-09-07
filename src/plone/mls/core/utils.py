@@ -91,7 +91,7 @@ def get_listing(lid, summary=False, lang=None):
     if settings.agency_id is None or len(settings.agency_id) == 0:
         raise MLSConnectionError(code=503)
 
-    URL_BASE = '%(site)s/agencies/%(agency_id)s/listings/%(listing_id)s/json' % dict(
+    URL_BASE = '%(site)s/api/listings/listing/%(listing_id)s/agency/%(agency_id)s' % dict(
         site=settings.mls_site,
         agency_id=settings.agency_id,
         listing_id=lid,
@@ -99,8 +99,6 @@ def get_listing(lid, summary=False, lang=None):
 
     kwargs.update({
         'apikey': settings.mls_key,
-        'agency': settings.agency_id,
-        'listing': lid,
     })
 
     if lang:
@@ -111,21 +109,8 @@ def get_listing(lid, summary=False, lang=None):
 
     url = URL_BASE + '?' + urlencode(kwargs)
     h = httplib2.Http(".cache")
-#     h = httplib2.Http()
     resp, content = h.request(url)
 
-#     try:
-#         data = urllib2.urlopen(url)
-#     except urllib2.URLError, e:
-#         if isinstance(e, urllib2.HTTPError):
-#             raise MLSConnectionError(code=e.code, reason=e.msg)
-#         else:
-#             print("MLSConnectionError")
-#             # No connection to the server possible
-#             raise MLSConnectionError(code=503, reason=e.reason)
-# 
-#     try:
-#         result = simplejson.load(data)
     try:
         result = simplejson.loads(content)
     except simplejson.JSONDecodeError, e:
@@ -134,13 +119,3 @@ def get_listing(lid, summary=False, lang=None):
     if result.get('status', 'error') != 'ok':
         raise MLSDataError
     return result.get('result', None)
-
-
-# def test_json():
-#     url = 'http://localhost:8060/mls/agencies/lep/listings/rl1000009/'
-#     data = json.dumps({'id': 1, 'method': 'listing', 'params': {'lang': 'en'}})
-#     req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
-#     f = urllib2.urlopen(req)
-#     result = f.read()
-#     print(result)
-#     print "Done"
