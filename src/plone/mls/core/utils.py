@@ -18,8 +18,10 @@
 # python imports
 from jsonpickle import decode
 from urllib import urlencode
+import errno
 import httplib2
 import simplejson
+import socket
 import urllib2
 # import json
 
@@ -109,8 +111,16 @@ def get_listing(lid, summary=False, lang=None):
 
     url = URL_BASE + '?' + urlencode(kwargs)
     h = httplib2.Http(".cache")
-    resp, content = h.request(url)
-
+    try:
+        resp, content = h.request(url)
+    except socket.error, e:
+        err = 0
+        if hasattr(e, 'args'):
+            err = getattr(e, 'args')[0]
+        else:
+            err = e.errno
+        if err == errno.ECONNREFUSED: # Connection refused
+            raise MLSConnectionError
     try:
         result = simplejson.loads(content)
     except simplejson.JSONDecodeError, e:
