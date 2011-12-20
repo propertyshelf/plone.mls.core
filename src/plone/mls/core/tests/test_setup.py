@@ -46,7 +46,8 @@ class TestSetup(unittest.TestCase):
         if qi.isProductAvailable('plone.app.registry'):
             self.assertTrue(qi.isProductInstalled('plone.app.registry'))
         else:
-            self.assertTrue('plone.app.registry' in qi.listInstallableProfiles())
+            self.assertTrue('plone.app.registry' in \
+                            qi.listInstallableProfiles())
 
     def test_browserlayer_installed(self):
         self.assertTrue(IMLSSpecific in layerutils.registered_layers())

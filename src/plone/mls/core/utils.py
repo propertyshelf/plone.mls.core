@@ -1,22 +1,27 @@
 # -*- coding: utf-8 -*-
 
-##############################################################################
+###############################################################################
 #
-# Copyright (c) 2011 Propertyshelf, LLC and Contributors.
+# Copyright (c) 2011 Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL). A copy of the ZPL should accompany this distribution.
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
-# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
-# FOR A PARTICULAR PURPOSE
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License version 2 as published by the
+# Free Software Foundation.
 #
-##############################################################################
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+#
+###############################################################################
 """Propertyshelf MLS utils."""
 
 # python imports
-from jsonpickle import decode
 from urllib import urlencode
 import errno
 import httplib2
@@ -47,6 +52,7 @@ class MLSError:
 class MLSConnectionError(MLSError):
     """No Conncetion to the MLS."""
 
+
 class MLSDataError(MLSError):
     """Data returned from the MLS contains errors."""
 
@@ -65,7 +71,7 @@ def authenticate():
         agency_id=settings.agency_id,
     )
     url = urllib2.unquote(url)
-    
+
     try:
         urllib2.urlopen(url)
     except IOError:
@@ -93,7 +99,8 @@ def get_listing(lid, summary=False, lang=None):
     if settings.agency_id is None or len(settings.agency_id) == 0:
         raise MLSConnectionError(code=503)
 
-    URL_BASE = '%(site)s/api/listings/listing/%(listing_id)s/agency/%(agency_id)s' % dict(
+    URL_BASE = '%(site)s/api/listings/listing/%(listing_id)s/agency/%' \
+               '(agency_id)s' % dict(
         site=settings.mls_site,
         agency_id=settings.agency_id,
         listing_id=lid,
@@ -119,7 +126,7 @@ def get_listing(lid, summary=False, lang=None):
             err = getattr(e, 'args')[0]
         else:
             err = e.errno
-        if err == errno.ECONNREFUSED: # Connection refused
+        if err == errno.ECONNREFUSED:  # Connection refused
             raise MLSConnectionError
     try:
         result = simplejson.loads(content)
