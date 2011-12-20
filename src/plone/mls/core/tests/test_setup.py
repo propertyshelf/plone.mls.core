@@ -36,10 +36,6 @@ class TestSetup(unittest.TestCase):
     """Setup Test Case for plone.mls.core."""
     layer = PLONE_MLS_CORE_INTEGRATION_TESTING
 
-    def test_portal_title(self):
-        portal = self.layer['portal']
-        self.assertEqual('Plone site', portal.getProperty('title'))
-
     def test_plone_app_registry_installed(self):
         portal = self.layer['portal']
         qi = portal.portal_quickinstaller
