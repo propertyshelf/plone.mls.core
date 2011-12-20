@@ -1,25 +1,31 @@
 # -*- coding: utf-8 -*-
 
-##############################################################################
+###############################################################################
 #
-# Copyright (c) 2011 Propertyshelf, LLC and Contributors.
+# Copyright (c) 2011 Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL). A copy of the ZPL should accompany this distribution.
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
-# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
-# FOR A PARTICULAR PURPOSE
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License version 2 as published by the
+# Free Software Foundation.
 #
-##############################################################################
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+#
+###############################################################################
 """Setup for plone.mls.core package."""
 
 import os
 import sys
 from setuptools import setup, find_packages
 
-version = '0.1.1'
+version = '0.2'
 
 #---[ START Server locking]--------------------------------------------------
 LOCK_PYPI_SERVER = "http://pypi.propertyshelf.com"
@@ -77,7 +83,7 @@ check_server(LOCK_PYPI_SERVER)
 setup(
     name='plone.mls.core',
     version=version,
-    description="Plone support for the Propertyshelf MLS",
+    description="Plone support for the Propertyshelf MLS.",
     long_description='\n\n'.join([
         open("README.txt").read() + "\n" +
         open(os.path.join("docs", "HISTORY.txt")).read(),
@@ -108,13 +114,18 @@ setup(
     namespace_packages=['plone', 'plone.mls'],
     include_package_data=True,
     zip_safe=False,
+    extras_require={
+        'test': [
+            'plone.app.testing',
+        ],
+    },
     install_requires=[
-      'setuptools',
-      # -*- Extra requirements: -*-
-      'httplib2',
-      'simplejson',
-      'jsonpickle',
-      'plone.app.registry',
+        'setuptools',
+        'Plone',
+        'plone.app.registry',
+        'httplib2',
+        'simplejson',
+        'jsonpickle',
     ],
     entry_points="""
     # -*- Entry points: -*-

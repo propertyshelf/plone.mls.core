@@ -1,53 +1,52 @@
 # -*- coding: utf-8 -*-
 
-##############################################################################
+###############################################################################
 #
-# Copyright (c) 2011 Propertyshelf, LLC and Contributors.
+# Copyright (c) 2011 Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL). A copy of the ZPL should accompany this distribution.
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
-# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
-# FOR A PARTICULAR PURPOSE
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License version 2 as published by the
+# Free Software Foundation.
 #
-##############################################################################
-"""Test the setup for plone.mls.core."""
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+#
+###############################################################################
+"""Test Setup of plone.mls.core."""
 
 # python imports
-import unittest
+import unittest2 as unittest
 
 # zope imports
-from Products.CMFCore.utils import getToolByName
-from Products.PloneTestCase.ptc import PloneTestCase
 from plone.browserlayer import utils as layerutils
 
 # local imports
 from plone.mls.core.browser.interfaces import IMLSSpecific
-from plone.mls.core.tests.layer import MLSCoreLayer
+from plone.mls.core.testing import PLONE_MLS_CORE_INTEGRATION_TESTING
 
 
-class SetupTest(PloneTestCase):
+class TestSetup(unittest.TestCase):
+    """Setup Test Case for plone.mls.core."""
+    layer = PLONE_MLS_CORE_INTEGRATION_TESTING
 
-    layer = MLSCoreLayer
+    def test_portal_title(self):
+        portal = self.layer['portal']
+        self.assertEqual('Plone site', portal.getProperty('title'))
 
-    def afterSetUp(self):
-        """Additional setup steps after the test setup is initailized."""
-
-    ###########################################################################
-    # Test Product Installations.
-    ###########################################################################
     def test_plone_app_registry_installed(self):
-        self.assertTrue(self.portal.portal_quickinstaller.isProductInstalled(
-            'plone.app.registry'))
+        portal = self.layer['portal']
+        qi = portal.portal_quickinstaller
+        if qi.isProductAvailable('plone.app.registry'):
+            self.assertTrue(qi.isProductInstalled('plone.app.registry'))
+        else:
+            self.assertTrue('plone.app.registry' in qi.listInstallableProfiles())
 
-    ###########################################################################
-    # Test Customizeations.
-    ###########################################################################
     def test_browserlayer_installed(self):
         self.assertTrue(IMLSSpecific in layerutils.registered_layers())
-
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)
