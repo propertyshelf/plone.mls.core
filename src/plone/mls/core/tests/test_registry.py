@@ -38,26 +38,26 @@ class TestMLSRegistry(unittest.TestCase):
     layer = PLONE_MLS_CORE_INTEGRATION_TESTING
 
     def test_registry_registered(self):
-        """Check if the settings are registered correctly."""
+        """Test that the settings are registered correctly."""
         registry = getUtility(IRegistry)
         self.assertTrue(registry.forInterface(IMLSSettings))
 
     def test_mls_registry_agency_id(self):
-        """Check if the key 'agency_id' is present and the default value."""
+        """Test for the 'agency_id' key and the default value."""
         registry = getUtility(IRegistry)
         key = 'plone.mls.core.interfaces.IMLSSettings.agency_id'
         self.assertTrue(key in registry.records.keys())
         self.assertEquals(registry.records.get(key).value, u'')
 
     def test_mls_registry_mls_key(self):
-        """Check if the key 'mls_key' is present and the default value."""
+        """Test for the 'mls_key' key and the default value."""
         registry = getUtility(IRegistry)
         key = 'plone.mls.core.interfaces.IMLSSettings.mls_key'
         self.assertTrue(key in registry.records.keys())
         self.assertEquals(registry.records.get(key).value, u'')
 
     def test_mls_registry_mls_site(self):
-        """Check if the key 'mls_site' is present and the default value."""
+        """Test for the 'mls_site' key and the default value."""
         registry = getUtility(IRegistry)
         key = 'plone.mls.core.interfaces.IMLSSettings.mls_site'
         self.assertTrue(key in registry.records.keys())

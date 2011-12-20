@@ -37,6 +37,7 @@ class TestSetup(unittest.TestCase):
     layer = PLONE_MLS_CORE_INTEGRATION_TESTING
 
     def test_plone_app_registry_installed(self):
+        """Test that plone.app.registry is installed."""
         portal = self.layer['portal']
         qi = portal.portal_quickinstaller
         if qi.isProductAvailable('plone.app.registry'):
@@ -46,4 +47,5 @@ class TestSetup(unittest.TestCase):
                             qi.listInstallableProfiles())
 
     def test_browserlayer_installed(self):
+        """Test that the browser layer is installed correctly."""
         self.assertTrue(IMLSSpecific in layerutils.registered_layers())
