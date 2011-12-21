@@ -25,7 +25,9 @@ import os
 import sys
 from setuptools import setup, find_packages
 
-version = '0.2'
+sys.path.insert(0, os.path.abspath('src/'))
+from plone.mls.core import __version__
+
 
 #---[ START Server locking]--------------------------------------------------
 LOCK_PYPI_SERVER = "http://pypi.propertyshelf.com"
@@ -82,7 +84,7 @@ check_server(LOCK_PYPI_SERVER)
 
 setup(
     name='plone.mls.core',
-    version=version,
+    version=__version__,
     description="Plone support for the Propertyshelf MLS.",
     long_description='\n\n'.join([
         open("README.txt").read() + "\n" +
@@ -106,8 +108,8 @@ setup(
     author_email='thomas@propertyshelf.com',
     maintainer='Thomas Massmann',
     maintainer_email='thomas@propertyshelf.com',
-    url='http://mypypi.inqbus.de/',
-    download_url='http://mypypi.inqbus.de/private/plone.mls.core',
+    url='http://pypi.propertyshelf.com/',
+    download_url='http://pypi.propertyshelf.com/private/plone.mls.core',
     license='Commercial',
     packages=find_packages('src', exclude=['ez_setup']),
     package_dir={'': 'src'},

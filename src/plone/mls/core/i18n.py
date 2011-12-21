@@ -19,31 +19,10 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 ###############################################################################
-"""MLS Settings Control Panel."""
+"""I18N support for plone.mls.core."""
 
 # zope imports
-from plone.app.registry.browser import controlpanel
-
-# local imports
-from plone.mls.core.i18n import _
-from plone.mls.core.interfaces import IMLSSettings
+from zope.i18nmessageid import MessageFactory
 
 
-class MLSSettingsEditForm(controlpanel.RegistryEditForm):
-    """MLS Settings Form"""
-
-    schema = IMLSSettings
-    label = _(u"heading_mls_settings", u"Propertyshelf MLS Settings")
-    description = _(u"help_mls_settings", default=u"")
-
-    def updateFields(self):
-        super(MLSSettingsEditForm, self).updateFields()
-
-    def updateWidgets(self):
-        super(MLSSettingsEditForm, self).updateWidgets()
-
-
-class MLSSettingsControlPanel(controlpanel.ControlPanelFormWrapper):
-    """MLS Settings Control Panel"""
-
-    form = MLSSettingsEditForm
+_ = MessageFactory('plone.mls.core')
