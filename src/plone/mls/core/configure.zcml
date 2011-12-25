@@ -5,6 +5,7 @@
   <!-- Include package dependencies. -->
   <!-- ============================= -->
   <includeDependencies package="." />
+  <include file="permissions.zcml" />
   <include package=".browser" />
   <include file="profiles.zcml" />
 

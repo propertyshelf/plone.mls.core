@@ -19,12 +19,12 @@
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       layer=".interfaces.IMLSSpecific"
       name="mls-controlpanel"
-      permission="cmf.ManagePortal"
+      permission="plone.app.controlpanel.Site"
       />
 
-    <browser:resourceDirectory
-        name="plone.mls.core"
-        directory="resources"
-        />
+  <browser:resourceDirectory
+      name="plone.mls.core"
+      directory="resources"
+      />
 
 </configure>
