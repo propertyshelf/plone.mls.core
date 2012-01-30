@@ -34,7 +34,6 @@ class MLSSettingsEditForm(controlpanel.RegistryEditForm):
 
     schema = IMLSSettings
     label = _(u"heading_mls_settings", u"Propertyshelf MLS Settings")
-    description = _(u"help_mls_settings", default=u"")
 
     def updateFields(self):
         super(MLSSettingsEditForm, self).updateFields()
