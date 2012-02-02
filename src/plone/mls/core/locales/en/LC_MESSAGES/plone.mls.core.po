@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-01-30 15:20+0000\n"
+"POT-Creation-Date: 2012-02-02 18:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,22 +19,22 @@ msgid "Propertyshelf MLS"
 msgstr ""
 
 #. Default: "Propertyshelf MLS Settings"
-#: ./../browser/controlpanel.py:36
+#: ./../browser/controlpanel.py:34
 msgid "heading_mls_settings"
 msgstr ""
 
 #. Default: "Agency ID"
-#: ./../interfaces.py:60
+#: ./../interfaces.py:58
 msgid "label_agency_id"
 msgstr ""
 
 #. Default: "MLS API Key"
-#: ./../interfaces.py:42
+#: ./../interfaces.py:40
 msgid "label_mls_key"
 msgstr ""
 
 #. Default: "MLS URL"
-#: ./../interfaces.py:51
+#: ./../interfaces.py:49
 msgid "label_mls_site"
 msgstr ""
 
