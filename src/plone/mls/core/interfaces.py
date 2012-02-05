@@ -1,18 +1,22 @@
 # -*- coding: utf-8 -*-
 
-##############################################################################
+###############################################################################
 #
-# Copyright (c) 2011 Propertyshelf, LLC and Contributors.
+# Copyright (c) 2012 Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL). A copy of the ZPL should accompany this distribution.
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
-# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
-# FOR A PARTICULAR PURPOSE
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AS IS AND ANY EXPRESSED OR
+# IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+# EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+# OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+# NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+# EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-##############################################################################
+###############################################################################
 """Interface definitions."""
 
 # zope imports
@@ -20,7 +24,7 @@ from zope import schema
 from zope.interface import Interface
 
 # local imports
-from plone.mls.core import _
+from plone.mls.core.i18n import _
 
 
 class IMLSSettings(Interface):
@@ -32,10 +36,6 @@ class IMLSSettings(Interface):
 
     mls_key = schema.TextLine(
         default=u"",
-        description=_(
-            u"help_mls_key",
-            default=u"",
-        ),
         required=False,
         title=_(
             u"label_mls_key",
@@ -45,10 +45,6 @@ class IMLSSettings(Interface):
 
     mls_site = schema.TextLine(
         default=u"",
-        description=_(
-            u"help_mls_site",
-            default=u"",
-        ),
         required=True,
         title=_(
             u"label_mls_site",
@@ -58,10 +54,6 @@ class IMLSSettings(Interface):
 
     agency_id = schema.TextLine(
         default=u"",
-        description=_(
-            u"help_agency_id",
-            default=u"",
-        ),
         required=True,
         title=_(
             u"label_agency_id",

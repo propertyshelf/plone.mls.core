@@ -17,11 +17,10 @@
 # EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 ###############################################################################
-"""Interface definitions."""
+"""I18N support for plone.mls.core."""
 
 # zope imports
-from plone.theme.interfaces import IDefaultPloneLayer
+from zope.i18nmessageid import MessageFactory
 
 
-class IMLSSpecific(IDefaultPloneLayer):
-    """Marker interface that defines a Zope 3 browser layer."""
+_ = MessageFactory('plone.mls.core')

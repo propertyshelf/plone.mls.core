@@ -15,7 +15,7 @@
       url_expr="string:${portal_url}/@@mls-controlpanel"
       visible="True"
       i18n:attributes="title">
-    <permission>Manage portal</permission>
+    <permission>Plone Site Setup: MLS</permission>
   </configlet>
 
 </object>

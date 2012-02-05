@@ -1,6 +1,22 @@
 Changelog
 =========
 
+0.2 (2012-02-05)
+----------------
+
+- Replaced old PloneTestCase based tests with plone.app.testing.
+  [thomas]
+
+- Added custom permission for controlpanel view.
+  [thomas]
+
+- Added custom listing result batch provider based on plone's batching.
+  [thomas]
+
+- Added i18n support.
+  [thomas]
+
+
 0.1.1 (2011-10-26)
 ------------------
 
