@@ -1,3 +1,3 @@
 """Plone support for the Propertyshelf MLS"""
 
-__version__ = '0.2'
+__version__ = '0.3'
