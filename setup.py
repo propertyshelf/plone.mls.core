@@ -4,7 +4,7 @@
 import os
 from setuptools import setup, find_packages
 
-__version__ = '0.4'
+__version__ = '0.4.1'
 
 
 setup(
@@ -31,9 +31,9 @@ setup(
     keywords='plone zope mls listing',
     author='Propertyshelf, Inc.',
     author_email='development@propertyshelf.com',
-    url='http://pypi.propertyshelf.com/',
-    download_url='http://pypi.propertyshelf.com/private/plone.mls.core',
-    license='Commercial',
+    url='https://bitbucket.org/propertyshelf/plone.mls.core',
+    download_url='http://pypi.python.org/pypi/plone.mls.core',
+    license='GPL',
     packages=find_packages('src', exclude=['ez_setup']),
     package_dir={'': 'src'},
     namespace_packages=['plone', 'plone.mls'],
