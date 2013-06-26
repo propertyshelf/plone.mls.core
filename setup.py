@@ -31,7 +31,7 @@ setup(
     keywords='plone zope mls listing',
     author='Propertyshelf, Inc.',
     author_email='development@propertyshelf.com',
-    url='https://bitbucket.org/propertyshelf/plone.mls.core',
+    url='https://github.com/propertyshelf/plone.mls.core',
     download_url='http://pypi.python.org/pypi/plone.mls.core',
     license='GPL',
     packages=find_packages('src', exclude=['ez_setup']),
