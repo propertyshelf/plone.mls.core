@@ -5,67 +5,50 @@ Changelog
 ----------------
 
 - Registered I18N locales folder.
-  [thomas]
 
 
 0.3 (2012-02-11)
 ----------------
 
 - I18N updates merged.
-  [thomas]
 
 
 0.2 (2012-02-05)
 ----------------
 
 - Replaced old PloneTestCase based tests with plone.app.testing.
-  [thomas]
-
 - Added custom permission for controlpanel view.
-  [thomas]
-
 - Added custom listing result batch provider based on plone's batching.
-  [thomas]
-
 - Added i18n support.
-  [thomas]
 
 
 0.1.1 (2011-10-26)
 ------------------
 
 - Added error handling if connection to the MLS can't be established.
-  [thomas]
 
 
 0.1 (2011-09-07)
 ----------------
 
 - Use httplib2 instead of urllib2 to get json data.
-  [thomas]
-
 - Use the new MLS listing api. Added language support.
-  [thomas]
 
 
 0.1b2 (2011-05-24)
 ------------------
 
 - Fixed manage portlets fallback link (Plone 4 only).
-  [thomas]
 
 
 0.1b1 (2011-05-23)
 ------------------
 
 - Now raises MLSConnectionErrors if no MLS connection or bad requests.
-  [thomas]
 - Added manage portlets fallback link for dexterity types.
-  [thomas]
 
 
 0.1dev (2011-05-18)
 -------------------
 
 - First Beta Release.
-  [thomas]
