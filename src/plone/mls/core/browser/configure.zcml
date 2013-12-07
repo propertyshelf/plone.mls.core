@@ -3,6 +3,8 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="plone.mls.core">
 
+  <include package="plone.app.controlpanel" />
+
   <browser:page
       class=".controlpanel.MLSSettingsControlPanel"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
