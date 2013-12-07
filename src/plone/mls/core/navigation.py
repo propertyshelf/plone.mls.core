@@ -3,6 +3,34 @@
 
 # zope imports
 from Products.CMFPlone.PloneBatch import Batch
+try:
+    from Products.CMFPlone.PloneBatch import LazyNextBatch, LazyPrevBatch
+    USE_OLD_BATCHING = True
+except ImportError:
+    USE_OLD_BATCHING = False
+
+
+if USE_OLD_BATCHING:
+    class LazyListingPrevBatch(LazyPrevBatch):
+        """Previous listing result batch."""
+
+        def __of__(self, parent):
+            return ListingBatch(parent._sequence, parent._size,
+                                parent.first - parent._size + parent.overlap, 0,
+                                parent.orphan, parent.overlap,
+                                batch_data=parent.batch_data)
+
+
+    class LazyListingNextBatch(LazyNextBatch):
+        """Next listing result batch."""
+
+        def __of__(self, parent):
+            if parent.end >= (parent.last + parent.size):
+                return None
+            return ListingBatch(parent._sequence, parent._size,
+                                parent.end - parent.overlap, 0,
+                                parent.orphan, parent.overlap,
+                                batch_data=parent.batch_data)
 
 
 class ListingBatch(Batch):
@@ -12,6 +40,14 @@ class ListingBatch(Batch):
                  pagerange=7, quantumleap=0, b_start_str='b_start',
                  batch_data=None):
         self.batch_data = batch_data
+
+        if USE_OLD_BATCHING:
+            self.__allow_access_to_unprotected_subobjects__ = 1
+            if self.batch_data is not None:
+                length = 0
+                if sequence is not None:
+                    length = len(sequence)
+                self.sequence_length = self.batch_data.get('results', length)
 
         if sequence is None:
             sequence = []
@@ -37,6 +73,9 @@ class ListingBatch(Batch):
     @property
     def next(self):
         """Next batch page."""
+        if USE_OLD_BATCHING:
+            return LazyListingNextBatch()
+
         if self.end >= (self.last + self.pagesize):
             return None
         return ListingBatch(
@@ -47,6 +86,9 @@ class ListingBatch(Batch):
     @property
     def previous(self):
         """Previous batch page."""
+        if USE_OLD_BATCHING:
+            return LazyListingPrevBatch()
+
         if not self.first:
             return None
         return ListingBatch(
