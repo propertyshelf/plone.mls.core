@@ -22,3 +22,5 @@ install:
 script: bin/test
 notifications:
   irc: irc.freenode.org#propertyshelf
+  hipchat:
+    secure: "T3yulcr/ngJczd1bac/GuB2GxhOXHND0KcajFkj9ULxmL1WQBGlMJJJkUDEAzTBouZ8JW2WbDdV80GxnQ592tFyGfABEWxNM3cKw8dFh6CWMDZkhS+W60wryFMnvxH1aoHJZKCt6/i/Dhg1bYBj1q27W93q7rCeNo1w5+v6I3MY="
