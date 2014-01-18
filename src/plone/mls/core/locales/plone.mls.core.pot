@@ -1,43 +1,45 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+##############################################################################
+#
+# Copyright (c) 2003-2004 Zope Foundation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-02-02 18:06+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: Sat Jan 18 13:41:33 2014\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Zope 3 Developers <zope-dev@zope.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
-"Preferred-Encodings: utf-8 latin1\n"
-"Domain: plone.mls.core\n"
+"Generated-By: zope/app/locales/extract.py\n"
 
-#: ./../profiles/default/controlpanel.xml
-msgid "Propertyshelf MLS"
-msgstr ""
-
+#: plone.mls.core:/browser/controlpanel.py:16
 #. Default: "Propertyshelf MLS Settings"
-#: ./../browser/controlpanel.py:34
 msgid "heading_mls_settings"
 msgstr ""
 
-#. Default: "Agency ID"
-#: ./../interfaces.py:58
-msgid "label_agency_id"
-msgstr ""
-
+#: plone.mls.core:/interfaces.py:22
 #. Default: "MLS API Key"
-#: ./../interfaces.py:40
 msgid "label_mls_key"
 msgstr ""
 
+#: plone.mls.core:/interfaces.py:31
 #. Default: "MLS URL"
-#: ./../interfaces.py:49
 msgid "label_mls_site"
+msgstr ""
+
+#: plone.mls.core:/interfaces.py:40
+#. Default: "Agency ID"
+msgid "label_agency_id"
 msgstr ""
 
