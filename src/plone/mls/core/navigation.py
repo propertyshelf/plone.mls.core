@@ -15,11 +15,15 @@ if USE_OLD_BATCHING:
         """Previous listing result batch."""
 
         def __of__(self, parent):
-            return ListingBatch(parent._sequence, parent._size,
-                                parent.first - parent._size + parent.overlap, 0,
-                                parent.orphan, parent.overlap,
-                                batch_data=parent.batch_data)
-
+            return ListingBatch(
+                parent._sequence,
+                parent._size,
+                parent.first - parent._size + parent.overlap,
+                0,
+                parent.orphan,
+                parent.overlap,
+                batch_data=parent.batch_data,
+            )
 
     class LazyListingNextBatch(LazyNextBatch):
         """Next listing result batch."""
@@ -27,10 +31,15 @@ if USE_OLD_BATCHING:
         def __of__(self, parent):
             if parent.end >= (parent.last + parent.size):
                 return None
-            return ListingBatch(parent._sequence, parent._size,
-                                parent.end - parent.overlap, 0,
-                                parent.orphan, parent.overlap,
-                                batch_data=parent.batch_data)
+            return ListingBatch(
+                parent._sequence,
+                parent._size,
+                parent.end - parent.overlap,
+                0,
+                parent.orphan,
+                parent.overlap,
+                batch_data=parent.batch_data,
+            )
 
 
 class ListingBatch(Batch):

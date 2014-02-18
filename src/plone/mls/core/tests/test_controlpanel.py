@@ -46,5 +46,7 @@ class TestMLSControlPanel(unittest.TestCase):
     def test_mls_in_controlpanel(self):
         """Check that there is an MLS entry in the control panel."""
         self.controlpanel = getToolByName(self.portal, 'portal_controlpanel')
-        self.assertTrue('propertyshelf_mls' in [a.getAction(self)['id']
-            for a in self.controlpanel.listActions()])
+        actions = [
+            a.getAction(self)['id'] for a in self.controlpanel.listActions()
+        ]
+        self.assertTrue('propertyshelf_mls' in actions)
