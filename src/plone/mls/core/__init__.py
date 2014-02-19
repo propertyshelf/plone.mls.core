@@ -1,1 +1,1 @@
-"""Plone support for the Propertyshelf MLS"""
+"""Plone support for the Propertyshelf MLS."""
