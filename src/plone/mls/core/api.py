@@ -5,12 +5,19 @@
 import logging
 
 # zope imports
+from Acquisition import aq_parent, aq_inner
+from Products.CMFPlone.interfaces import IPloneSiteRoot
 from plone import api
 from plone.registry.interfaces import IRegistry
+from zope.annotation.interfaces import IAnnotations
 from zope.component import getUtility
 
 # local imports
-from plone.mls.core.interfaces import IMLSSettings
+from plone.mls.core.browser.views import CONFIGURATION_KEY
+from plone.mls.core.interfaces import (
+    ILocalMLSSettings,
+    IMLSSettings,
+)
 
 
 logger = logging.getLogger('plone.mls.core')
@@ -18,7 +25,20 @@ logger = logging.getLogger('plone.mls.core')
 
 def _local_settings(context):
     """Get local MLS settings."""
-    return None
+    settings = None
+    obj = context
+    while (
+            not IPloneSiteRoot.providedBy(obj) and
+            not ILocalMLSSettings.providedBy(obj)):
+        parent = aq_parent(aq_inner(obj))
+        if parent is None:
+            return
+        obj = parent
+    if ILocalMLSSettings.providedBy(obj):
+        annotations = IAnnotations(obj)
+        settings = annotations.get(
+            CONFIGURATION_KEY, annotations.setdefault(CONFIGURATION_KEY, {}))
+    return settings
 
 
 def get_settings(context=None):

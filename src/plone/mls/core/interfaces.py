@@ -42,3 +42,11 @@ class IMLSSettings(Interface):
             default=u"Agency ID",
         )
     )
+
+
+class IPossibleLocalMLSSettings(Interface):
+    """Marker interface for possible local MLS settings."""
+
+
+class ILocalMLSSettings(Interface):
+    """Marker interface for activated local MLS settings."""
