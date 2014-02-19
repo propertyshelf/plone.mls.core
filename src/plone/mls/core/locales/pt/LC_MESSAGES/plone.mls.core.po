@@ -1,18 +1,17 @@
-#
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: Sat Jan 18 13:41:33 2014\n"
-"PO-Revision-Date: 2014-01-14 14:53+0000\n"
-"Last-Translator: Thomas Massmann <thomas@propertyshelf.com>\n"
-"Language-Team: Portuguese (http://www.transifex.com/projects/p/MLS_Plone/"
-"language/pt/)\n"
-"Language: pt\n"
+"PO-Revision-Date: 2014-02-19 14:55+0000\n"
+"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
+"Language-Team: Portuguese (http://www.transifex.com/projects/p/MLS_Plone/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Domain: DOMAIN\n"
+"Language: pt\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
