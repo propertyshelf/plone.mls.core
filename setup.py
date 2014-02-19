@@ -9,6 +9,7 @@ long_description = open("README.rst").read() + "\n" + open("CHANGES.rst").read()
 
 install_requires = [
     'setuptools',
+    'plone.api',
     'plone.app.registry',
     'httplib2',
     'simplejson',
