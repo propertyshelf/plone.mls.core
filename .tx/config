@@ -1,6 +1,6 @@
 [MLS_Plone.plonemlscore]
 file_filter = src/plone/mls/core/locales/<lang>/LC_MESSAGES/plone.mls.core.po
-source_file = src/plone/mls/core/locales/en/LC_MESSAGES/plone.mls.core.po
+source_file = src/plone/mls/core/locales/plone.mls.core.pot
 source_lang = en
 
 [main]
