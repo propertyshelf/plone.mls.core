@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: Wed Feb 19 15:54:18 2014\n"
+"POT-Creation-Date: Wed Feb 19 16:12:01 2014\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Zope 3 Developers <zope-dev@zope.org>\n"
@@ -24,8 +24,7 @@ msgstr ""
 "Generated-By: zope/app/locales/extract.py\n"
 
 #: plone.mls.core:/browser/controlpanel.py:16
-#. Default: "Propertyshelf MLS Settings"
-msgid "heading_mls_settings"
+msgid "Propertyshelf MLS Settings"
 msgstr ""
 
 #: plone.mls.core:/browser/controlpanel.py:17
@@ -61,17 +60,14 @@ msgid "The local MLS settings don't work with this content type. Add 'IPossibleL
 msgstr ""
 
 #: plone.mls.core:/interfaces.py:22
-#. Default: "MLS API Key"
-msgid "label_mls_key"
+msgid "MLS API Key"
 msgstr ""
 
-#: plone.mls.core:/interfaces.py:31
-#. Default: "MLS URL"
-msgid "label_mls_site"
+#: plone.mls.core:/interfaces.py:28
+msgid "MLS URL"
 msgstr ""
 
-#: plone.mls.core:/interfaces.py:40
-#. Default: "Agency ID"
-msgid "label_agency_id"
+#: plone.mls.core:/interfaces.py:34
+msgid "Agency ID"
 msgstr ""
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: Sat Jan 18 13:41:33 2014\n"
+"POT-Creation-Date: Wed Feb 19 16:12:01 2014\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,22 +15,58 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#. Default: "Propertyshelf MLS Settings"
 #: plone.mls.core:/browser/controlpanel.py:16
-msgid "heading_mls_settings"
+msgid "Propertyshelf MLS Settings"
 msgstr ""
 
-#. Default: "MLS API Key"
+#: plone.mls.core:/browser/controlpanel.py:17
+msgid ""
+"This MLS configuration will be used as the default for this Plone site. You "
+"can add more MLS configurations by activating the local MLS settings on any "
+"content item within the site."
+msgstr ""
+
+#: plone.mls.core:/browser/localconfig.py:27
+msgid "Local Propertyshelf MLS Settings"
+msgstr ""
+
+#: plone.mls.core:/browser/localconfig.py:28
+msgid ""
+"This MLS configuration will be used for this content item and all possible "
+"child elements."
+msgstr ""
+
+#: plone.mls.core:/browser/localconfig.py:41
+msgid "Save"
+msgstr ""
+
+#: plone.mls.core:/browser/localconfig.py:52
+msgid "Cancel"
+msgstr ""
+
+#: plone.mls.core:/browser/localconfig.py:92
+msgid "Local MLS settings deactivated."
+msgstr ""
+
+#: plone.mls.core:/browser/localconfig.py:96
+msgid "Local MLS settings activated."
+msgstr ""
+
+#: plone.mls.core:/browser/localconfig.py:98
+msgid ""
+"The local MLS settings don't work with this content type. Add "
+"'IPossibleLocalMLSSettings' to the provided interfaces to enable this "
+"feature."
+msgstr ""
+
 #: plone.mls.core:/interfaces.py:22
-msgid "label_mls_key"
+msgid "MLS API Key"
 msgstr ""
 
-#. Default: "MLS URL"
-#: plone.mls.core:/interfaces.py:31
-msgid "label_mls_site"
+#: plone.mls.core:/interfaces.py:28
+msgid "MLS URL"
 msgstr ""
 
-#. Default: "Agency ID"
-#: plone.mls.core:/interfaces.py:40
-msgid "label_agency_id"
+#: plone.mls.core:/interfaces.py:34
+msgid "Agency ID"
 msgstr ""
