@@ -11,6 +11,7 @@ install_requires = [
     'setuptools',
     'plone.api',
     'plone.app.registry',
+    'plone.directives.form',
     'httplib2',
     'simplejson',
 ]
