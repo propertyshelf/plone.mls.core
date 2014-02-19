@@ -17,30 +17,21 @@ class IMLSSettings(Interface):
     """
 
     mls_key = schema.TextLine(
-        default=u"",
+        default=u'',
         required=False,
-        title=_(
-            u"label_mls_key",
-            default=u"MLS API Key",
-        )
+        title=_(u'MLS API Key'),
     )
 
     mls_site = schema.TextLine(
-        default=u"",
+        default=u'',
         required=True,
-        title=_(
-            u"label_mls_site",
-            default=u"MLS URL",
-        )
+        title=_(u'MLS URL'),
     )
 
     agency_id = schema.TextLine(
-        default=u"",
+        default=u'',
         required=True,
-        title=_(
-            u"label_agency_id",
-            default=u"Agency ID",
-        )
+        title=_(u'Agency ID'),
     )
 
 

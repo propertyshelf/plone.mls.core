@@ -13,7 +13,7 @@ class MLSSettingsEditForm(controlpanel.RegistryEditForm):
     """Global/default MLS Settings Form."""
 
     schema = IMLSSettings
-    label = _(u"heading_mls_settings", u"Propertyshelf MLS Settings")
+    label = _(u'Propertyshelf MLS Settings')
     description = _(
         u'This MLS configuration will be used as the default for this '
         u'Plone site. You can add more MLS configurations by activating '
