@@ -13,7 +13,7 @@ from zope.annotation.interfaces import IAnnotations
 from zope.component import getUtility
 
 # local imports
-from plone.mls.core.browser.views import CONFIGURATION_KEY
+from plone.mls.core.browser.localconfig import CONFIGURATION_KEY
 from plone.mls.core.interfaces import (
     ILocalMLSSettings,
     IMLSSettings,
