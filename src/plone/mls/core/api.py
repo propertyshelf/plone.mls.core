@@ -47,7 +47,7 @@ def get_settings(context=None):
         context = api.portal.get()
 
     local_settings = _local_settings(context)
-    if local_settings is not None:
+    if local_settings:
         logger.debug('Returning local MLS settings.')
         return local_settings
 
