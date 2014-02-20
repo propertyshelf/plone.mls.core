@@ -60,10 +60,9 @@ def get_settings(context=None):
         except:
             logger.warning('Global MLS settings not available.')
         else:
-            settings = {
-                'agency_id': registry_settings.agency_id,
-                'mls_key': registry_settings.mls_key,
-                'mls_site': registry_settings.mls_site,
-            }
+            settings = dict([
+                (a, getattr(registry_settings, a)) for a in
+                registry_settings.__schema__]
+            )
             logger.debug('Returning global MLS settings.')
     return settings
