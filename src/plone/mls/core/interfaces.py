@@ -18,7 +18,7 @@ class IMLSSettings(Interface):
 
     mls_key = schema.TextLine(
         default=u'',
-        required=False,
+        required=True,
         title=_(u'MLS API Key'),
     )
 
