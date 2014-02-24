@@ -1,14 +1,18 @@
 Changelog
 =========
 
-0.5 (unreleased)
+0.5 (2014-02-24)
 ----------------
+
+- Added local MLS configuration.
+- Added compatibility with deprecated batching used prior Plone 4.2.
+- I18N updates.
 
 
 0.4.2 (2013-06-27)
 ------------------
 
-- CI with travis-ci-
+- CI with travis-ci.
 
 
 0.4.1 (2013-06-26)
