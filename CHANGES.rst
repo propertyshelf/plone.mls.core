@@ -7,6 +7,12 @@ Changelog
 - No changes yet.
 
 
+0.5.1 (2014-02-25)
+------------------
+
+- Fixed batching provider for Plone < 4.2.
+
+
 0.5 (2014-02-24)
 ----------------
 
