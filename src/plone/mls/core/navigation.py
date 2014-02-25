@@ -41,66 +41,89 @@ if USE_OLD_BATCHING:
                 batch_data=parent.batch_data,
             )
 
+    class ListingBatch(Batch):
+        """Listing result batch."""
+        __allow_access_to_unprotected_subobjects__ = 1
 
-class ListingBatch(Batch):
-    """Listing result batch."""
+        previous = LazyListingPrevBatch()
+        next = LazyListingNextBatch()
 
-    def __init__(self, sequence, size, start=0, end=0, orphan=0, overlap=0,
-                 pagerange=7, quantumleap=0, b_start_str='b_start',
-                 batch_data=None):
-        self.batch_data = batch_data
-
-        if USE_OLD_BATCHING:
-            self.__allow_access_to_unprotected_subobjects__ = 1
+        def __init__(self, sequence, size, start=0, end=0, orphan=0, overlap=0,
+                     pagerange=7, quantumleap=0, b_start_str='b_start',
+                     batch_data=None):
+            self.batch_data = batch_data
             if self.batch_data is not None:
                 length = 0
                 if sequence is not None:
                     length = len(sequence)
                 self.sequence_length = self.batch_data.get('results', length)
 
-        if sequence is None:
-            sequence = []
+            if sequence is None:
+                sequence = []
 
-        super(ListingBatch, self).__init__(
-            sequence, size, start, end, orphan, overlap, pagerange,
-            quantumleap, b_start_str,
-        )
+            super(ListingBatch, self).__init__(
+                sequence, size, start, end, orphan, overlap, pagerange,
+                quantumleap, b_start_str,
+            )
 
-    @property
-    def sequence_length(self):
-        """Effective length of sequence."""
-        if self.batch_data is not None:
-            length = getattr(self, 'pagesize', 0)
-            return self.batch_data.get('results', length)
-        return super(ListingBatch, self).sequence_length
+        def __getitem__(self, index):
+            if index >= self.length:
+                raise IndexError(index)
+            return self._sequence[index]
 
-    def __getitem__(self, index):
-        if index >= self.length:
-            raise IndexError(index)
-        return self._sequence[index]
+else:
+    class ListingBatch(Batch):
+        """Listing result batch."""
 
-    @property
-    def next(self):
-        """Next batch page."""
-        if USE_OLD_BATCHING:
-            return LazyListingNextBatch()
+        def __init__(self, sequence, size, start=0, end=0, orphan=0, overlap=0,
+                     pagerange=7, quantumleap=0, b_start_str='b_start',
+                     batch_data=None):
+            self.batch_data = batch_data
 
-        if self.end >= (self.last + self.pagesize):
-            return None
-        return ListingBatch(
-            self._sequence, self._size, self.end - self.overlap, 0,
-            self.orphan, self.overlap, batch_data=self.batch_data,
-        )
+            if sequence is None:
+                sequence = []
 
-    @property
-    def previous(self):
-        """Previous batch page."""
-        if USE_OLD_BATCHING:
-            return LazyListingPrevBatch()
+            super(ListingBatch, self).__init__(
+                sequence, size, start, end, orphan, overlap, pagerange,
+                quantumleap, b_start_str,
+            )
 
-        if not self.first:
-            return None
-        return ListingBatch(
-            self._sequence, self._size, self.first - self._size + self.overlap,
-            0, self.orphan, self.overlap, batch_data=self.batch_data,
-        )
+        @property
+        def sequence_length(self):
+            """Effective length of sequence."""
+            if self.batch_data is not None:
+                length = getattr(self, 'pagesize', 0)
+                return self.batch_data.get('results', length)
+            return super(ListingBatch, self).sequence_length
+
+        def __getitem__(self, index):
+            if index >= self.length:
+                raise IndexError(index)
+            return self._sequence[index]
+
+        @property
+        def next(self):
+            """Next batch page."""
+            if USE_OLD_BATCHING:
+                return LazyListingNextBatch()
+
+            if self.end >= (self.last + self.pagesize):
+                return None
+            return ListingBatch(
+                self._sequence, self._size, self.end - self.overlap, 0,
+                self.orphan, self.overlap, batch_data=self.batch_data,
+            )
+
+        @property
+        def previous(self):
+            """Previous batch page."""
+            if USE_OLD_BATCHING:
+                return LazyListingPrevBatch()
+
+            if not self.first:
+                return None
+            return ListingBatch(
+                self._sequence, self._size,
+                self.first - self._size + self.overlap, 0, self.orphan,
+                self.overlap, batch_data=self.batch_data,
+            )
