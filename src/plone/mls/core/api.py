@@ -5,12 +5,15 @@
 import logging
 
 # zope imports
+from persistent.interfaces import IPersistent
 from Acquisition import aq_parent, aq_inner
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from plone import api
 from plone.registry.interfaces import IRegistry
 from zope.annotation.interfaces import IAnnotations
+from zope.browser.interfaces import IBrowserView
 from zope.component import getUtility
+from zope.globalrequest import getRequest
 
 # local imports
 from plone.mls.core.browser.localconfig import CONFIGURATION_KEY
@@ -26,6 +29,14 @@ logger = logging.getLogger('plone.mls.core')
 def _local_settings(context):
     """Get local MLS settings."""
     settings = None
+    if not context or not IPersistent.providedBy(context):
+        request = getRequest()
+        portal = api.portal.get()
+        view = portal.restrictedTraverse(request.get('PATH_INFO'))
+        if IBrowserView.providedBy(view):
+            context = view.context
+        else:
+            context = view
     obj = context
     while (
             not IPloneSiteRoot.providedBy(obj) and
