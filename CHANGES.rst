@@ -1,10 +1,10 @@
 Changelog
 =========
 
-0.6 (unreleased)
-----------------
+0.5.3 (2014-04-23)
+------------------
 
-- No changes yet.
+- Use request.parents to get the local context.
 
 
 0.5.2 (2014-04-23)
