@@ -1,10 +1,11 @@
 Changelog
 =========
 
-0.6 (unreleased)
-----------------
+0.5.2 (2014-04-23)
+------------------
 
-- No changes yet.
+- Fixed context for local MLS settings (e.g. for collection settings).
+- I18N updates.
 
 
 0.5.1 (2014-02-25)
