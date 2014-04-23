@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: Wed Feb 19 16:10:43 2014\n"
-"PO-Revision-Date: 2014-02-19 15:15+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
+"PO-Revision-Date: 2014-02-28 20:39+0000\n"
+"Last-Translator: claudia.aubin <claudia.aubin@propertyshelf.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/MLS_Plone/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,40 +38,40 @@ msgid ""
 "This MLS configuration will be used as the default for this Plone site. You "
 "can add more MLS configurations by activating the local MLS settings on any "
 "content item within the site."
-msgstr ""
+msgstr "Cette configuration MLS sera utilisé comme valeur par défaut pour ce site Plone. Vous pouvez ajouter plus de configurations MLS en activant les paramètres du MLS local sur n'importe quel item à même le site."
 
 #: plone.mls.core:/browser/localconfig.py:27
 msgid "Local Propertyshelf MLS Settings"
-msgstr ""
+msgstr "Paramètres du MLS local Propertyshelf"
 
 #: plone.mls.core:/browser/localconfig.py:28
 msgid ""
 "This MLS configuration will be used for this content item and all possible "
 "child elements."
-msgstr ""
+msgstr "Cette configuration MLS sera utilisée pour ce contenu et pour tous les sous éléments possible."
 
 #: plone.mls.core:/browser/localconfig.py:41
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 #: plone.mls.core:/browser/localconfig.py:52
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: plone.mls.core:/browser/localconfig.py:92
 msgid "Local MLS settings deactivated."
-msgstr ""
+msgstr "Paramètres du MLS local désactivés."
 
 #: plone.mls.core:/browser/localconfig.py:96
 msgid "Local MLS settings activated."
-msgstr ""
+msgstr "Paramètres du MLS local activés."
 
 #: plone.mls.core:/browser/localconfig.py:98
 msgid ""
 "The local MLS settings don't work with this content type. Add "
 "'IPossibleLocalMLSSettings' to the provided interfaces to enable this "
 "feature."
-msgstr ""
+msgstr "Les paramètres du MLS local ne fonctionnent pas avec ce type de contenu. Ajouter 'IPossibleLocalMLSSettings' aux interfaces fournies pour activer cette fonction."
 
 #: plone.mls.core:/interfaces.py:22
 msgid "MLS API Key"
