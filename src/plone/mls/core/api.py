@@ -11,7 +11,6 @@ from Products.CMFPlone.interfaces import IPloneSiteRoot
 from plone import api
 from plone.registry.interfaces import IRegistry
 from zope.annotation.interfaces import IAnnotations
-from zope.browser.interfaces import IBrowserView
 from zope.component import getUtility
 from zope.globalrequest import getRequest
 
@@ -31,12 +30,11 @@ def _local_settings(context):
     settings = None
     if not context or not IPersistent.providedBy(context):
         request = getRequest()
-        portal = api.portal.get()
-        view = portal.restrictedTraverse(request.get('PATH_INFO'))
-        if IBrowserView.providedBy(view):
-            context = view.context
+        parents = request.get('PARENTS')
+        if len(parents) > 0:
+            context = parents[0]
         else:
-            context = view
+            context = api.portal.get()
     obj = context
     while (
             not IPloneSiteRoot.providedBy(obj) and
