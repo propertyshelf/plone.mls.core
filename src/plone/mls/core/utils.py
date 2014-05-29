@@ -60,7 +60,7 @@ def authenticate():
 
 
 def get_language(context):
-    portal_state = context.unrestrictedTraverse("@@plone_portal_state")
+    portal_state = context.unrestrictedTraverse('@@plone_portal_state')
     return aq_inner(context).Language() or \
         aq_inner(aq_parent(context)).Language() or \
         portal_state.default_language()
@@ -95,7 +95,7 @@ def get_listing(lid, summary=False, lang=None):
         kwargs.update({'summary': 1})
 
     url = URL_BASE + '?' + urlencode(kwargs)
-    h = httplib2.Http(".cache")
+    h = httplib2.Http('.cache')
     try:
         resp, content = h.request(url)
     except socket.error, e:
