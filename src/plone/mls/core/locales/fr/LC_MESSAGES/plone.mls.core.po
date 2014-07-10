@@ -1,7 +1,7 @@
 # 
 # Translators:
 # claudia.aubin <claudia.aubin@propertyshelf.com>, 2014
-# claudiapropertyshelf <c.oberbeck@gmx.de>, 2013
+# Claudia Oberbeck <c.oberbeck@gmx.de>, 2013
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2014
 msgid ""
 msgstr ""
