@@ -3,7 +3,7 @@
 
 from setuptools import setup, find_packages
 
-version = '0.6dev'
+version = '0.5.4'
 description = "Plone support for the Propertyshelf MLS."
 long_description = ('\n'.join([
     open('README.rst').read(),
