@@ -97,7 +97,7 @@ def get_listing(lid, summary=False, lang=None):
         resp, content = h.request(url)
     except socket.error, e:
         err = 0
-        if hasattr(e, 'args'):
+        if getattr(e, 'args', None) is not None:
             err = getattr(e, 'args')[0]
         else:
             err = e.errno
