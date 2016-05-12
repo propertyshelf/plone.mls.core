@@ -10,7 +10,7 @@ except ImportError:
     USE_OLD_BATCHING = False
 
 
-if USE_OLD_BATCHING:
+if USE_OLD_BATCHING:  # noqa
     class LazyListingPrevBatch(LazyPrevBatch):
         """Previous listing result batch."""
 
