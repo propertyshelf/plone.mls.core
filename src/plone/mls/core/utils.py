@@ -11,7 +11,7 @@ import urllib2
 # import json
 
 # zope imports
-from Acquisition import aq_inner, aq_parent
+from plone import api
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 
@@ -60,10 +60,7 @@ def authenticate():
 
 
 def get_language(context):
-    portal_state = context.unrestrictedTraverse('@@plone_portal_state')
-    return aq_inner(context).Language() or \
-        aq_inner(aq_parent(context)).Language() or \
-        portal_state.default_language()
+    return api.portal.get_current_language()
 
 
 def get_listing(lid, summary=False, lang=None):

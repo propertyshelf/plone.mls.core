@@ -12,7 +12,7 @@ long_description = ('\n'.join([
 
 install_requires = [
     'setuptools',
-    'plone.api',
+    'plone.api >= 1.5',
     'plone.app.registry',
     'plone.directives.form',
     'httplib2',
