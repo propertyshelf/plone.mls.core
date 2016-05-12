@@ -11,7 +11,7 @@ import urllib2
 # import json
 
 # zope imports
-from Acquisition import aq_inner, aq_parent
+from plone import api
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 
@@ -45,7 +45,7 @@ def authenticate():
     if settings.mls_site is None and settings.agency_id is None:
         return False
 
-    url = '%(site)s/agencies/%(agency_id)s' % dict(
+    url = '{site}/agencies/{agency_id}'.format(
         site=settings.mls_site,
         agency_id=settings.agency_id,
     )
@@ -60,10 +60,7 @@ def authenticate():
 
 
 def get_language(context):
-    portal_state = context.unrestrictedTraverse('@@plone_portal_state')
-    return aq_inner(context).Language() or \
-        aq_inner(aq_parent(context)).Language() or \
-        portal_state.default_language()
+    return api.portal.get_current_language()
 
 
 def get_listing(lid, summary=False, lang=None):
@@ -78,7 +75,7 @@ def get_listing(lid, summary=False, lang=None):
     if settings.agency_id is None or len(settings.agency_id) == 0:
         raise MLSConnectionError(code=503)
 
-    URL_BASE = '%(site)s/api/listings/listing/%(lid)s/agency/%(aid)s' % dict(
+    URL_BASE = '{site}/api/listings/listing/{lid}/agency/{aid}'.format(
         site=settings.mls_site,
         aid=settings.agency_id,
         lid=lid,
@@ -100,7 +97,7 @@ def get_listing(lid, summary=False, lang=None):
         resp, content = h.request(url)
     except socket.error, e:
         err = 0
-        if hasattr(e, 'args'):
+        if getattr(e, 'args', None) is not None:
             err = getattr(e, 'args')[0]
         else:
             err = e.errno

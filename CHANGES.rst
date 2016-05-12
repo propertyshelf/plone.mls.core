@@ -4,6 +4,9 @@ Changelog
 0.6 (unreleased)
 ----------------
 
+- Fix code-analysis errors and warnings.
+- Update testing environment.
+
 
 0.5.4 (2014-07-14)
 ------------------

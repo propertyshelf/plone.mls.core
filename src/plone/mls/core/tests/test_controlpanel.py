@@ -2,17 +2,18 @@
 """Test Control Panel for plone.mls.core."""
 
 # python imports
-import unittest2 as unittest
+try:
+    import unittest2 as unittest
+except ImportError:
+    import unittest
 
 # zope imports
 from Products.CMFCore.utils import getToolByName
 from plone.app.testing import TEST_USER_ID, logout, setRoles
 from plone.registry import Registry
 from zope.component import getMultiAdapter
-from zope.interface import directlyProvides
 
 # local imports
-from plone.mls.core.browser.interfaces import IMLSSpecific
 from plone.mls.core.interfaces import IMLSSettings
 from plone.mls.core.testing import PLONE_MLS_CORE_INTEGRATION_TESTING
 
@@ -24,7 +25,6 @@ class TestMLSControlPanel(unittest.TestCase):
     def setUp(self):
         """Additional test setup."""
         self.portal = self.layer['portal']
-        directlyProvides(self.portal.REQUEST, IMLSSpecific)
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         self.registry = Registry()
         self.registry.registerInterface(IMLSSettings)

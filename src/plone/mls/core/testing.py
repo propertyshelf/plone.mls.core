@@ -8,7 +8,6 @@ from plone.app.testing import (
     PLONE_FIXTURE,
     applyProfile,
 )
-from zope.configuration import xmlconfig
 
 
 class PloneMLSCore(PloneSandboxLayer):
@@ -19,8 +18,7 @@ class PloneMLSCore(PloneSandboxLayer):
         """Set up Zope for testing."""
         # Load ZCML
         import plone.mls.core
-        xmlconfig.file('configure.zcml', plone.mls.core,
-                       context=configurationContext)
+        self.loadZCML(package=plone.mls.core)
 
     def setUpPloneSite(self, portal):
         """Set up a Plone site for testing."""

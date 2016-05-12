@@ -2,7 +2,10 @@
 """Test Registry for plone.mls.core."""
 
 # python imports
-import unittest2 as unittest
+try:
+    import unittest2 as unittest
+except ImportError:
+    import unittest
 
 # zope imports
 from plone.registry.interfaces import IRegistry
@@ -27,18 +30,18 @@ class TestMLSRegistry(unittest.TestCase):
         registry = getUtility(IRegistry)
         key = 'plone.mls.core.interfaces.IMLSSettings.agency_id'
         self.assertTrue(key in registry.records.keys())
-        self.assertEquals(registry.records.get(key).value, u'')
+        self.assertEqual(registry.records.get(key).value, u'')
 
     def test_mls_registry_mls_key(self):
         """Test for the 'mls_key' key and the default value."""
         registry = getUtility(IRegistry)
         key = 'plone.mls.core.interfaces.IMLSSettings.mls_key'
         self.assertTrue(key in registry.records.keys())
-        self.assertEquals(registry.records.get(key).value, u'')
+        self.assertEqual(registry.records.get(key).value, u'')
 
     def test_mls_registry_mls_site(self):
         """Test for the 'mls_site' key and the default value."""
         registry = getUtility(IRegistry)
         key = 'plone.mls.core.interfaces.IMLSSettings.mls_site'
         self.assertTrue(key in registry.records.keys())
-        self.assertEquals(registry.records.get(key).value, u'')
+        self.assertEqual(registry.records.get(key).value, u'')

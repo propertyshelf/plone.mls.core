@@ -2,7 +2,10 @@
 """Test Setup of plone.mls.core."""
 
 # python imports
-import unittest2 as unittest
+try:
+    import unittest2 as unittest
+except ImportError:
+    import unittest
 
 # zope imports
 from plone.browserlayer import utils as layerutils
