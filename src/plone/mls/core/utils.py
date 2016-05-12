@@ -45,7 +45,7 @@ def authenticate():
     if settings.mls_site is None and settings.agency_id is None:
         return False
 
-    url = '%(site)s/agencies/%(agency_id)s' % dict(
+    url = '{site}/agencies/{agency_id}'.format(
         site=settings.mls_site,
         agency_id=settings.agency_id,
     )
@@ -78,7 +78,7 @@ def get_listing(lid, summary=False, lang=None):
     if settings.agency_id is None or len(settings.agency_id) == 0:
         raise MLSConnectionError(code=503)
 
-    URL_BASE = '%(site)s/api/listings/listing/%(lid)s/agency/%(aid)s' % dict(
+    URL_BASE = '{site}/api/listings/listing/{lid}/agency/{aid}'.format(
         site=settings.mls_site,
         aid=settings.agency_id,
         lid=lid,
