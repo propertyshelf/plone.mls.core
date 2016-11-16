@@ -24,9 +24,11 @@
     </class>
   </configure>
 
-  <!-- Add marker interface to all Archetype content types. -->
-  <class class="Products.Archetypes.BaseObject.BaseObject">
-    <implements interface="plone.mls.core.interfaces.IPossibleLocalMLSSettings" />
-  </class>
+  <configure zcml:condition="installed plone.dexterity">
+    <!-- Add marker interface to all dexterity content types. -->
+    <class class="plone.dexterity.content.DexterityContent">
+      <implements interface="plone.mls.core.interfaces.IPossibleLocalMLSSettings" />
+    </class>
+  </configure>
 
 </configure>
