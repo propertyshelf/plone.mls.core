@@ -23,7 +23,7 @@ class TestMLSRegistry(unittest.TestCase):
     def test_registry_registered(self):
         """Test that the settings are registered correctly."""
         registry = getUtility(IRegistry)
-        self.assertTrue(registry.forInterface(IMLSSettings))
+        self.assertTrue(registry.forInterface(IMLSSettings))  # noqa
 
     def test_mls_registry_agency_id(self):
         """Test for the 'agency_id' key and the default value."""

@@ -8,7 +8,7 @@ except ImportError:
     import unittest
 
 # zope imports
-from Products.CMFCore.utils import getToolByName
+from plone import api
 from plone.app.testing import TEST_USER_ID, logout, setRoles
 from plone.registry import Registry
 from zope.component import getMultiAdapter
@@ -48,8 +48,8 @@ class TestMLSControlPanel(unittest.TestCase):
 
     def test_mls_in_controlpanel(self):
         """Check that there is an MLS entry in the control panel."""
-        self.controlpanel = getToolByName(self.portal, 'portal_controlpanel')
+        controlpanel = api.portal.get_tool(name='portal_controlpanel')
         actions = [
-            a.getAction(self)['id'] for a in self.controlpanel.listActions()
+            a.getAction(self)['id'] for a in controlpanel.listActions()
         ]
         self.assertTrue('propertyshelf_mls' in actions)

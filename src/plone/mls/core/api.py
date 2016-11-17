@@ -65,7 +65,7 @@ def get_settings(context=None):
     registry = getUtility(IRegistry)
     if registry is not None:
         try:
-            registry_settings = registry.forInterface(IMLSSettings)
+            registry_settings = registry.forInterface(IMLSSettings)  # noqa
         except KeyError:
             logger.warning('Global MLS settings not available.')
         else:

@@ -2,9 +2,7 @@
 """Migration steps for plone.mls.listing."""
 
 # zope imports
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
-from zope.component import getUtility
+from plone import api
 
 
 PROFILE_ID = 'profile-plone.mls.core:default'
@@ -16,7 +14,6 @@ def migrate_to_1001(context):
     * Activate portal actions.
     * Register JS resources.
     """
-    site = getUtility(IPloneSiteRoot)
-    setup = getToolByName(site, 'portal_setup')
+    setup = api.portal.get_tool(name='portal_setup')
     setup.runImportStepFromProfile(PROFILE_ID, 'actions')
     setup.runImportStepFromProfile(PROFILE_ID, 'jsregistry')

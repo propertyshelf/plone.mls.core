@@ -40,7 +40,7 @@ class MLSDataError(MLSError):
 def authenticate():
     """Authenticate the Plone Website."""
     registry = getUtility(IRegistry)
-    settings = registry.forInterface(IMLSSettings)
+    settings = registry.forInterface(IMLSSettings)  # noqa
 
     if settings.mls_site is None and settings.agency_id is None:
         return False
@@ -67,7 +67,7 @@ def get_listing(lid, summary=False, lang=None):
     """Get the data for a single listing."""
     kwargs = {}
     registry = getUtility(IRegistry)
-    settings = registry.forInterface(IMLSSettings)
+    settings = registry.forInterface(IMLSSettings)  # noqa
 
     if settings.mls_site is None or len(settings.mls_site) == 0:
         raise MLSConnectionError(code=503)
