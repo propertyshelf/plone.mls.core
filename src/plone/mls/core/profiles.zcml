@@ -34,4 +34,12 @@
       profile="plone.mls.core:default"
       />
 
+
+  <!-- GenericSetup utilities. -->
+  <!-- ======================= -->
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="plone.mls.core-hiddenprofiles"
+      />
+
 </configure>

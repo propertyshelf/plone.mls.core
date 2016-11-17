@@ -5,7 +5,9 @@
 from logging import getLogger
 
 # zope imports
+from Products.CMFPlone.interfaces import INonInstallable
 from plone.browserlayer import utils as layerutils
+from zope.interface import implementer
 
 # local imports
 from plone.mls.core.browser.interfaces import IMLSSpecific
@@ -22,3 +24,13 @@ def resetLayers(context):
     if IMLSSpecific in layerutils.registered_layers():
         layerutils.unregister_layer(name='plone.mls.core')
         logger.info('Browser layer "plone.mls.core" uninstalled.')
+
+
+@implementer(INonInstallable)
+class HiddenProfiles(object):
+
+    def getNonInstallableProfiles(self):
+        """Hide uninstall profile from site-creation and quickinstaller."""
+        return [
+            'plone.mls.core:uninstall',
+        ]
