@@ -17,7 +17,7 @@
 
   <!-- Add local MLS settings marker interface. -->
   <!-- ======================================== -->
-  <configure zcml:condition="installed plone.dexterity">
+  <configure zcml:condition="installed Products.Archetypes">
     <!-- Add marker interface to all Archetype content types. -->
     <class class="Products.Archetypes.BaseObject.BaseObject">
       <implements interface="plone.mls.core.interfaces.IPossibleLocalMLSSettings" />
