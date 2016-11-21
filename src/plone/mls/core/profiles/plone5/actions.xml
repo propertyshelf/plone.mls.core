@@ -18,6 +18,7 @@
       <property name="title" i18n:translate="">Local MLS Settings</property>
       <property name="url_expr">string:${object_url}/@@mls-localconfig</property>
       <property name="visible">True</property>
+      <property name="modal" type="text">{}</property>
     </object>
   </object>
 
