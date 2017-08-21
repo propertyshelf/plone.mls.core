@@ -26,11 +26,11 @@ matrix:
       env: PLONE_VERSION=5.1
   fast_finish: true
 install:
-  - sed -ie "s#travis-4.x.cfg#travis-$PLONE_VERSION.x.cfg#" travis.cfg
+  - sed -ie "s#test-4.x.cfg#test-$PLONE_VERSION.x.cfg#" travis.cfg
   - sed -ie "s#versions-$PLONE_VERSION.x#versions#" travis.cfg
   - mkdir -p buildout-cache/eggs
   - mkdir -p buildout-cache/downloads
-  - pip install zc.buildout
+  - pip install -r requirements.txt
   - buildout -c travis.cfg annotate
   - buildout -c travis.cfg -N -q
 branches:
