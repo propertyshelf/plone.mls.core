@@ -1,12 +1,13 @@
-# 
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
 # Translators:
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2012
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2014-05-29 08:21+0000\n"
-"PO-Revision-Date: 2014-05-29 08:28+0000\n"
+"POT-Creation-Date: 2017-08-21 10:09+0000\n"
+"PO-Revision-Date: 2017-08-21 10:10+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
 "Language-Team: German (http://www.transifex.com/propertyshelf/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -19,11 +20,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: plone/mls/core/profiles/default/actions.xml
+#: plone/mls/core/profiles.zcml:56
+msgid "A Plone 4 uninstall profile for plone.mls.core."
+msgstr ""
+
+#: plone/mls/core/profiles.zcml:66
+msgid "A Plone 5 uninstall profile for plone.mls.core."
+msgstr ""
+
+#: plone/mls/core/profiles/plone4/actions.xml
+#: plone/mls/core/profiles/plone5/actions.xml
 msgid "Activate local MLS settings"
 msgstr "Lokale MLS-Konfiguration aktivieren"
 
-#: plone/mls/core/profiles/default/actions.xml
+#: plone/mls/core/profiles/plone4/actions.xml
+#: plone/mls/core/profiles/plone5/actions.xml
 msgid "Activate the local MLS configuration."
 msgstr "Die Einstellungen für eine lokale MLS-Konfiguration aktivieren."
 
@@ -35,15 +46,18 @@ msgstr "Agentur-ID"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: plone/mls/core/profiles/default/actions.xml
+#: plone/mls/core/profiles/plone4/actions.xml
+#: plone/mls/core/profiles/plone5/actions.xml
 msgid "Deactivate local MLS settings"
 msgstr "Lokale MLS-Konfiguration deaktivieren"
 
-#: plone/mls/core/profiles/default/actions.xml
+#: plone/mls/core/profiles/plone4/actions.xml
+#: plone/mls/core/profiles/plone5/actions.xml
 msgid "Deactivate the local MLS configuration."
 msgstr "Die Einstellungen für eine lokale MLS-Konfiguration deaktivieren."
 
-#: plone/mls/core/profiles/default/actions.xml
+#: plone/mls/core/profiles/plone4/actions.xml
+#: plone/mls/core/profiles/plone5/actions.xml
 msgid "Local MLS Settings"
 msgstr "Lokale MLS-Konfiguration"
 
@@ -63,7 +77,8 @@ msgstr "Lokale MLS-Konfiguration"
 msgid "MLS API Key"
 msgstr "MLS API-Schlüssel"
 
-#: plone/mls/core/profiles/default/controlpanel.xml
+#: plone/mls/core/profiles/plone4/controlpanel.xml
+#: plone/mls/core/profiles/plone5/controlpanel.xml
 msgid "MLS Base Settings"
 msgstr "Basis-MLS Einstellungen"
 
@@ -71,9 +86,18 @@ msgstr "Basis-MLS Einstellungen"
 msgid "MLS URL"
 msgstr "MLS URL"
 
-#: plone/mls/core/profiles/default/actions.xml
+#: plone/mls/core/profiles/plone4/actions.xml
+#: plone/mls/core/profiles/plone5/actions.xml
 msgid "Manage the local MLS settings."
 msgstr "Verwaltung der lokalen MLS-Einstellungen."
+
+#: plone/mls/core/profiles.zcml:27
+msgid "Plone 4 support for the Propertyshelf MLS."
+msgstr ""
+
+#: plone/mls/core/profiles.zcml:37
+msgid "Plone 5 support for the Propertyshelf MLS."
+msgstr ""
 
 #: plone/mls/core/browser/controlpanel.py:16
 msgid "Propertyshelf MLS Settings"
@@ -102,3 +126,27 @@ msgid ""
 "This MLS configuration will be used for this content item and all possible "
 "child elements."
 msgstr "Diese MLS-Konfiguration wird hier und in allen möglichen Unterelementen verwendet."
+
+#: plone/mls/core/profiles.zcml:27
+msgid "plone.mls.core"
+msgstr ""
+
+#: plone/mls/core/profiles.zcml:56
+msgid "plone.mls.core - uninstall"
+msgstr ""
+
+#: plone/mls/core/profiles.zcml:17
+msgid "plone.mls.core base profile"
+msgstr ""
+
+#: plone/mls/core/profiles.zcml:17
+msgid "plone.mls.core base profile."
+msgstr ""
+
+#: plone/mls/core/profiles.zcml:46
+msgid "plone.mls.core base uninstall profile"
+msgstr ""
+
+#: plone/mls/core/profiles.zcml:46
+msgid "plone.mls.core base uninstall profile."
+msgstr ""
