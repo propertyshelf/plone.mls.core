@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.6 (unreleased)
+0.6 (2017-08-21)
 ----------------
 
 - Fix code-analysis errors and warnings.
