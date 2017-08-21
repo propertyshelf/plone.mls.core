@@ -7,6 +7,7 @@ Changelog
 - Fix code-analysis errors and warnings.
 - Update testing environment.
 - Add Plone5 compatibility.
+- I18N updates.
 
 
 0.5.4 (2014-07-14)
