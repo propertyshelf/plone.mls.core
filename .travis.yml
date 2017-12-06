@@ -30,7 +30,7 @@ install:
   - sed -ie "s#versions-$PLONE_VERSION.x#versions#" travis.cfg
   - mkdir -p buildout-cache/eggs
   - mkdir -p buildout-cache/downloads
-  - pip install -r requirements.txt
+  - pip install -r requirements_$TRAVIS_PYTHON_VERSION.txt
   - buildout -c travis.cfg annotate
   - buildout -c travis.cfg -N -q
 branches:
