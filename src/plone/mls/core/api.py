@@ -1,25 +1,20 @@
 # -*- coding: utf-8 -*-
 """plone.mls.core API."""
 
-# python imports
-import logging
-
-# zope imports
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from persistent.interfaces import IPersistent
-from Acquisition import aq_parent, aq_inner
-from Products.CMFPlone.interfaces import IPloneSiteRoot
 from plone import api
+from plone.mls.core.browser.localconfig import CONFIGURATION_KEY
+from plone.mls.core.interfaces import ILocalMLSSettings
+from plone.mls.core.interfaces import IMLSSettings
 from plone.registry.interfaces import IRegistry
+from Products.CMFPlone.interfaces import IPloneSiteRoot
 from zope.annotation.interfaces import IAnnotations
 from zope.component import getUtility
 from zope.globalrequest import getRequest
 
-# local imports
-from plone.mls.core.browser.localconfig import CONFIGURATION_KEY
-from plone.mls.core.interfaces import (
-    ILocalMLSSettings,
-    IMLSSettings,
-)
+import logging
 
 
 logger = logging.getLogger('plone.mls.core')

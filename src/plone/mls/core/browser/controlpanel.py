@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 """MLS Settings Control Panel."""
 
-# zope imports
 from plone.app.registry.browser import controlpanel
-
-# local imports
 from plone.mls.core.i18n import _
 from plone.mls.core.interfaces import IMLSSettings
 

@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
 """Additional setup steps."""
 
-# python imports
 from logging import getLogger
-
-# zope imports
-from Products.CMFPlone.interfaces import INonInstallable
 from plone.browserlayer import utils as layerutils
+from plone.mls.core.browser.interfaces import IMLSSpecific
+from Products.CMFPlone.interfaces import INonInstallable
 from zope.interface import implementer
 
-# local imports
-from plone.mls.core.browser.interfaces import IMLSSpecific
 
 logger = getLogger('plone.mls.core')
 

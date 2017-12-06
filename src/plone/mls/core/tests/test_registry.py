@@ -1,19 +1,16 @@
 # -*- coding: utf-8 -*-
 """Test Registry for plone.mls.core."""
 
-# python imports
+from plone.mls.core.interfaces import IMLSSettings
+from plone.mls.core.testing import PLONE_MLS_CORE_INTEGRATION_TESTING
+from plone.registry.interfaces import IRegistry
+from zope.component import getUtility
+
+
 try:
     import unittest2 as unittest
 except ImportError:
     import unittest
-
-# zope imports
-from plone.registry.interfaces import IRegistry
-from zope.component import getUtility
-
-# local imports
-from plone.mls.core.interfaces import IMLSSettings
-from plone.mls.core.testing import PLONE_MLS_CORE_INTEGRATION_TESTING
 
 
 class TestMLSRegistry(unittest.TestCase):

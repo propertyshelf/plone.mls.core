@@ -1,20 +1,17 @@
 # -*- coding: utf-8 -*-
 """Local MLS configurations."""
 
-# zope imports
 from plone.directives import form
-from z3c.form import field, button
-from zope.annotation.interfaces import IAnnotations
-from zope.interface import alsoProvides, noLongerProvides
-from zope.traversing.browser.absoluteurl import absoluteURL
-
-# local imports
 from plone.mls.core.i18n import _
-from plone.mls.core.interfaces import (
-    ILocalMLSSettings,
-    IMLSSettings,
-    IPossibleLocalMLSSettings,
-)
+from plone.mls.core.interfaces import ILocalMLSSettings
+from plone.mls.core.interfaces import IMLSSettings
+from plone.mls.core.interfaces import IPossibleLocalMLSSettings
+from z3c.form import button
+from z3c.form import field
+from zope.annotation.interfaces import IAnnotations
+from zope.interface import alsoProvides
+from zope.interface import noLongerProvides
+from zope.traversing.browser.absoluteurl import absoluteURL
 
 
 CONFIGURATION_KEY = 'plone.mls.core.localmlssettings'

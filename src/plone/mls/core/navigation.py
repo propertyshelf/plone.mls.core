@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 """Custom Batch Provider for listing results."""
 
-# zope imports
 from Products.CMFPlone.PloneBatch import Batch
+
+
 try:
-    from Products.CMFPlone.PloneBatch import LazyNextBatch, LazyPrevBatch
+    from Products.CMFPlone.PloneBatch import LazyNextBatch
+    from Products.CMFPlone.PloneBatch import LazyPrevBatch
     USE_OLD_BATCHING = True
 except ImportError:
     USE_OLD_BATCHING = False

@@ -1,18 +1,15 @@
 # -*- coding: utf-8 -*-
 """Test Setup of plone.mls.core."""
 
-# python imports
+from plone.browserlayer import utils as layerutils
+from plone.mls.core.browser.interfaces import IMLSSpecific
+from plone.mls.core.testing import PLONE_MLS_CORE_INTEGRATION_TESTING
+
+
 try:
     import unittest2 as unittest
 except ImportError:
     import unittest
-
-# zope imports
-from plone.browserlayer import utils as layerutils
-
-# local imports
-from plone.mls.core.browser.interfaces import IMLSSpecific
-from plone.mls.core.testing import PLONE_MLS_CORE_INTEGRATION_TESTING
 
 
 class TestSetup(unittest.TestCase):

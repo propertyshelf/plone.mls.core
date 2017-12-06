@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 """Interface definitions."""
 
-# zope imports
+from plone.mls.core.i18n import _
 from zope import schema
 from zope.interface import Interface
-
-# local imports
-from plone.mls.core.i18n import _
 
 
 class IMLSSettings(Interface):

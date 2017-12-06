@@ -1,22 +1,21 @@
 # -*- coding: utf-8 -*-
 """Test Control Panel for plone.mls.core."""
 
-# python imports
-try:
-    import unittest2 as unittest
-except ImportError:
-    import unittest
-
-# zope imports
-from plone.app.testing import TEST_USER_ID, logout, setRoles
+from plone.app.testing import logout
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.mls.core.browser.interfaces import IMLSSpecific
+from plone.mls.core.interfaces import IMLSSettings
+from plone.mls.core.testing import PLONE_MLS_CORE_INTEGRATION_TESTING
 from plone.registry import Registry
 from zope.component import getMultiAdapter
 from zope.interface import alsoProvides
 
-# local imports
-from plone.mls.core.browser.interfaces import IMLSSpecific
-from plone.mls.core.interfaces import IMLSSettings
-from plone.mls.core.testing import PLONE_MLS_CORE_INTEGRATION_TESTING
+
+try:
+    import unittest2 as unittest
+except ImportError:
+    import unittest
 
 
 class TestMLSControlPanel(unittest.TestCase):

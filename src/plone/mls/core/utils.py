@@ -1,22 +1,17 @@
 # -*- coding: utf-8 -*-
 """Propertyshelf MLS utils."""
 
-# python imports
+from plone import api
+from plone.mls.core.interfaces import IMLSSettings
+from plone.registry.interfaces import IRegistry
 from urllib import urlencode
+from zope.component import getUtility
+
 import errno
 import httplib2
 import simplejson
 import socket
 import urllib2
-# import json
-
-# zope imports
-from plone import api
-from plone.registry.interfaces import IRegistry
-from zope.component import getUtility
-
-# local imports
-from plone.mls.core.interfaces import IMLSSettings
 
 
 TIMEOUT = 10
@@ -95,7 +90,7 @@ def get_listing(lid, summary=False, lang=None):
     h = httplib2.Http('.cache')
     try:
         resp, content = h.request(url)
-    except socket.error, e:
+    except socket.error as e:
         err = 0
         if getattr(e, 'args', None) is not None:
             err = getattr(e, 'args')[0]
@@ -105,7 +100,7 @@ def get_listing(lid, summary=False, lang=None):
             raise MLSConnectionError
     try:
         result = simplejson.loads(content)
-    except simplejson.JSONDecodeError, e:
+    except simplejson.JSONDecodeError as e:
         raise MLSDataError(code=401)
 
     if result.get('status', 'error') != 'ok':

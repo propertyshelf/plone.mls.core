@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
 """Test Layer for plone.mls.core."""
 
-# zope imports
-from plone.app.testing import (
-    IntegrationTesting,
-    PloneSandboxLayer,
-    PLONE_FIXTURE,
-    applyProfile,
-)
+from plone.app.testing import applyProfile
+from plone.app.testing import IntegrationTesting
+from plone.app.testing import PLONE_FIXTURE
+from plone.app.testing import PloneSandboxLayer
 
 
 class PloneMLSCore(PloneSandboxLayer):
