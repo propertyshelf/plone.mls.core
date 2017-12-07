@@ -13,20 +13,28 @@ class IMLSSettings(Interface):
     via plone.registry.
     """
 
-    mls_key = schema.TextLine(
-        default=u'',
-        required=True,
-        title=_(u'MLS API Key'),
-    )
-
     mls_site = schema.TextLine(
         default=u'',
+        description=_(
+            u'This is the URL of the MLS you want to connect to, e.g. '
+            u'https://demomls.com.'
+        ),
         required=True,
         title=_(u'MLS URL'),
     )
 
+    mls_key = schema.TextLine(
+        default=u'',
+        description=_(u'This is your personal access token for the MLS.'),
+        required=True,
+        title=_(u'MLS API Key'),
+    )
+
     agency_id = schema.TextLine(
         default=u'',
+        description=_(
+            u'This is the ID/short name of your agency/organization.'
+        ),
         required=True,
         title=_(u'Agency ID'),
     )
