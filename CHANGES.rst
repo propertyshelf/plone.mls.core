@@ -4,7 +4,8 @@ Changelog
 0.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add dependency to ps.plone.mls.
+- Remove controlpanel settings from GS profiles (now handled by ps.plone.mls).
 
 
 0.6 (2017-08-21)
