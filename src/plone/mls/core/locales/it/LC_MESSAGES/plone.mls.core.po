@@ -1,7 +1,6 @@
 # --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
 # SOME DESCRIPTIVE TITLE.
 # Translators:
-# Athanassios <a.karaiannis@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
