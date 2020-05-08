@@ -1,12 +1,11 @@
 # --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
 # SOME DESCRIPTIVE TITLE.
 # Translators:
-# Athanassios <a.karaiannis@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2017-08-21 10:09+0000\n"
-"PO-Revision-Date: 2017-08-21 10:10+0000\n"
+"PO-Revision-Date: 2017-09-19 11:23+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
 "Language-Team: Italian (http://www.transifex.com/propertyshelf/MLS_Plone/language/it/)\n"
 "MIME-Version: 1.0\n"
