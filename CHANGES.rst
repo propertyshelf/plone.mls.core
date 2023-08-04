@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.8 (unreleased)
-----------------
+0.7.1 (2023-08-04)
+------------------
 
 - Add a new optional setting for an override email address which would be used as the sender for all inquiries.
 
