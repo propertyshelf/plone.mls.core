@@ -24,7 +24,7 @@ class LocalMLSSettings(form.Form):
     label = _(u'Local Propertyshelf MLS Settings')
     description = _(
         u'This MLS configuration will be used for this content item and all '
-        u'possible child elements.'
+        u'possible child elements.',
     )
 
     def getContent(self):
@@ -85,17 +85,17 @@ class LocalMLSSettingsToggle(object):
         if ILocalMLSSettings.providedBy(self.context):
             # Deactivate local MLS settings.
             noLongerProvides(self.context, ILocalMLSSettings)
-            self.context.reindexObject(idxs=['object_provides', ])
+            self.context.reindexObject(idxs=['object_provides'])
             msg = _(u'Local MLS settings deactivated.')
         elif IPossibleLocalMLSSettings.providedBy(self.context):
             alsoProvides(self.context, ILocalMLSSettings)
-            self.context.reindexObject(idxs=['object_provides', ])
+            self.context.reindexObject(idxs=['object_provides'])
             msg = _(u'Local MLS settings activated.')
         else:
             msg = _(
                 u'The local MLS settings don\'t work with this '
                 u'content type. Add \'IPossibleLocalMLSSettings\' to the '
-                u'provided interfaces to enable this feature.'
+                u'provided interfaces to enable this feature.',
             )
             msg_type = 'error'
 

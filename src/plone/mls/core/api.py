@@ -66,7 +66,7 @@ def get_settings(context=None):
         else:
             settings = dict([
                 (a, getattr(registry_settings, a)) for a in
-                registry_settings.__schema__]
+                registry_settings.__schema__],
             )
             logger.debug('Returning global MLS settings.')
     return settings

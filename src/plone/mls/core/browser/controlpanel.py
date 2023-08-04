@@ -14,7 +14,7 @@ class MLSSettingsEditForm(controlpanel.RegistryEditForm):
     description = _(
         u'This MLS configuration will be used as the default for this '
         u'Plone site. You can add more MLS configurations by activating '
-        u'the local MLS settings on any content item within the site.'
+        u'the local MLS settings on any content item within the site.',
     )
 
     def updateFields(self):
