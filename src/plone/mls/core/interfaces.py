@@ -39,6 +39,18 @@ class IMLSSettings(Interface):
         title=_(u'Agency ID'),
     )
 
+    override_from_email = schema.TextLine(
+        required=False,
+        title=_(u'Override From Email Address'),
+        description=_(
+            u'If entered, this email address will be used as the from email '
+            u'address for all listing inquiries from this embedding (e.g. using noreply@yourdomain.com). '
+            u'If left blank, it will default to use the same domain that is used for '
+            u'the ESMTP username in the Plone email settings, using a default '
+            u'address of leads@smtpdomain.com.',
+        ),
+    )
+
 
 class IPossibleLocalMLSSettings(Interface):
     """Marker interface for possible local MLS settings."""
