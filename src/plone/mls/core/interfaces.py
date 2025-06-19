@@ -51,6 +51,20 @@ class IMLSSettings(Interface):
         ),
     )
 
+    check_valid_listing = schema.Bool(
+        default=False,
+        required=False,
+        title=_(u'Additional Check For Valid Listing'),
+        description=_(
+            u'If enabled, the listing collections and searches will first check whether this '
+            u'listing is valid based on the configuration of that collection before showing '
+            u'the detail page for that listing. '
+            u'Note: This will decrease the performance and should only be used temporarily in very '
+            u'specific cases when changes to the listing collections need to be reflected immediately '
+            u'in order to remove indexed pages from search engines.',
+        ),
+    )
+
 
 class IPossibleLocalMLSSettings(Interface):
     """Marker interface for possible local MLS settings."""
