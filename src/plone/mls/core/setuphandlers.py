@@ -3,7 +3,6 @@
 
 from logging import getLogger
 from plone.browserlayer import utils as layerutils
-from plone.mls.core import PLONE_4
 from plone.mls.core.browser.interfaces import IMLSSpecific
 from Products.CMFPlone.interfaces import INonInstallable
 from zope.interface import implementer
@@ -33,8 +32,5 @@ class HiddenProfiles(object):
             'plone.mls.core:uninstall',
             'plone.mls.core:uninstall-base',
         ]
-
-        if not PLONE_4:
-            items.append('plone.mls.core:default')
 
         return items
