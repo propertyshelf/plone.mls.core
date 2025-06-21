@@ -4,7 +4,7 @@ Changelog
 0.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add a new configuration option to check if a listing detail view should be displayed based on the listing collection settings.
 
 
 0.7.1 (2023-08-04)
