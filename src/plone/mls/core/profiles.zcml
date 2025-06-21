@@ -78,6 +78,16 @@
       profile="plone.mls.core:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.core"
+      description="Update plone.mls.core settings registry."
+      source="1001"
+      destination="1002"
+      handler=".migration.migrate_to_1002"
+      sortkey="1"
+      profile="plone.mls.core:default"
+      />
+
 
   <!-- GenericSetup utilities. -->
   <!-- ======================= -->
