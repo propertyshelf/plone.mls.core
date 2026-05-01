@@ -4,7 +4,7 @@ Changelog
 0.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add a new configuration option to exclude listings from certain agencies given a list of agency IDs, either globally or through local MLS settings.
 
 
 0.7.2 (2025-06-20)
