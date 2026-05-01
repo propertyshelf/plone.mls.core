@@ -28,3 +28,12 @@ def migrate_to_1002(context):
     """
     registry = getUtility(IRegistry)
     registry.registerInterface(IMLSSettings)
+
+
+def migrate_to_1003(context):
+    """Migrate from 1002 to 1003.
+
+    * Register new exclude_agency_id field in MLS settings registry.
+    """
+    registry = getUtility(IRegistry)
+    registry.registerInterface(IMLSSettings)

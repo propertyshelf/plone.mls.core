@@ -88,6 +88,16 @@
       profile="plone.mls.core:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.core"
+      description="Register exclude_agency_id field in MLS settings registry."
+      source="1002"
+      destination="1003"
+      handler=".migration.migrate_to_1003"
+      sortkey="1"
+      profile="plone.mls.core:default"
+      />
+
 
   <!-- GenericSetup utilities. -->
   <!-- ======================= -->
