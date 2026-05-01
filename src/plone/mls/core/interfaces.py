@@ -39,6 +39,18 @@ class IMLSSettings(Interface):
         title=_(u'Agency ID'),
     )
 
+    exclude_agency_id = schema.TextLine(
+        description=_(
+            u'Enter an agency ID or a comma-separated list of agency IDs '
+            u'whose listings should be excluded from all searches and '
+            u'collections across this entire website. This setting is merged '
+            u'with any per-view exclusions — agencies listed here cannot be '
+            u'un-excluded by individual view configurations.',
+        ),
+        required=False,
+        title=_(u'Exclude Agency IDs'),
+    )
+
     override_from_email = schema.TextLine(
         required=False,
         title=_(u'Override From Email Address'),
