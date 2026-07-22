@@ -37,3 +37,12 @@ def migrate_to_1003(context):
     """
     registry = getUtility(IRegistry)
     registry.registerInterface(IMLSSettings)
+
+
+def migrate_to_1004(context):
+    """Migrate from 1003 to 1004.
+
+    * Register new show_listing_attribution field in MLS settings registry.
+    """
+    registry = getUtility(IRegistry)
+    registry.registerInterface(IMLSSettings)

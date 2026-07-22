@@ -77,6 +77,18 @@ class IMLSSettings(Interface):
         ),
     )
 
+    show_listing_attribution = schema.Bool(
+        default=False,
+        required=False,
+        title=_(u'Show Listing Attribution Notice'),
+        description=_(
+            u'If enabled, the attribution notice configured in the MLS is '
+            u'shown as fine print at the bottom of every listing detail '
+            u'page. The wording is maintained per MLS instance, not here. '
+            u'Nothing is shown if the MLS does not provide a notice.',
+        ),
+    )
+
 
 class IPossibleLocalMLSSettings(Interface):
     """Marker interface for possible local MLS settings."""

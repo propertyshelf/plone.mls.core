@@ -98,6 +98,16 @@
       profile="plone.mls.core:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.core"
+      description="Register show_listing_attribution field in MLS settings registry."
+      source="1003"
+      destination="1004"
+      handler=".migration.migrate_to_1004"
+      sortkey="1"
+      profile="plone.mls.core:default"
+      />
+
 
   <!-- GenericSetup utilities. -->
   <!-- ======================= -->
