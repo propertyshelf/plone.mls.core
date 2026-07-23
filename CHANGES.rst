@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.8 (unreleased)
-----------------
+0.7.4 (2026-07-22)
+------------------
 
 - Add a new 'Show Listing Attribution Notice' option to the global and local MLS settings, to switch on the attribution notice on listing detail pages. Disabled by default.
 
